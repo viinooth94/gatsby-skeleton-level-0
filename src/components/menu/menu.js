@@ -2,7 +2,8 @@ import React from "react";
 // import {useState, useEffect} from "react";
 import { LinkCell, NavCell} from "../goto";
 import { MenuMarkdown } from "./menu_markdown";
-import { get_css_value, Window_is_higher_than, GetWidth }  from "../../utils/utils"
+import { get_css_value}  from "../../utils/utils"
+import { Window_is_higher_than, GetWidth }  from "../../utils/canvas"
 
 const big_box = {
 	boxShadow:"none",
@@ -15,7 +16,8 @@ const big_cell = {
 	padding: "1em",
 	color:"white",
 	fontFamily:"sans-serif",
-	border: "1px "+   get_css_value("--color_3") + " solid",
+	border: "1px black solid",
+	// border: "1px "+   get_css_value("--color_3") + " solid",
 	cursor: "pointer",
 }
 
@@ -38,14 +40,16 @@ const small_box = {
 
 	width: "100%",
 	height: "40px",
-	background: get_css_value("--color_4"),
+	background: "magenta",
+	// background: get_css_value("--color_4"),
 
 }
 
 const small_cell = {
 	width: "30px",
 	height: "30px",
-	background : get_css_value("--color_2"),
+	background: "yellow",
+	// background : get_css_value("--color_2"),
 }
 
 function MenuSmall() {
@@ -73,10 +77,10 @@ export function Menu() {
 	// }, [higher]);
 
 	// return <div>Truc</div>
-	console.log("Menu(): width",GetWidth());
-
-	if(Window_is_higher_than(600)) {
-		console.log("GRAND");
+	// console.log("Menu(): width",GetWidth());
+	// Window_is_higher_than(600
+	if(true) {
+		// console.log("GRAND");
 		return <MenuBig/>
 	} else {
 		console.log("PETIT");

@@ -31,9 +31,10 @@ export function MenuMarkdown ({style}) {
 			name: elem.node.childrenMarkdownRemark[0].frontmatter.title,
 		}
 		menu.push(obj);
+		return null;
 	})
 
-	return<>{menu.map((elem, key) => 
-		<LinkCell to={elem.to} style={style}>{elem.name}</LinkCell>
+	return <>{menu.map((elem, key) => 
+		<LinkCell key={key} to={elem.to} style={style}>{elem.name}</LinkCell>
 	)}</>
 }

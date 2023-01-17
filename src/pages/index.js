@@ -4,6 +4,7 @@ import { Home } from "./home";
 import "./../global.css"
 
 
+
 const IndexPage = () => {
   return (
     <div>
