@@ -6,5 +6,15 @@ module.exports = {
     title: `Gatsby Skeleton`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown`,
+        path: `${__dirname}/media/markdown`,
+      },
+    },
+
+    `gatsby-transformer-remark`,
+  ],
 }

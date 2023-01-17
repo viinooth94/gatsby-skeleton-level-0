@@ -1,0 +1,20 @@
+:root {
+  --font_1: Arial, Helvetica, sans-serif;
+
+	--color_0: black;
+	--color_1: white;
+
+  --color_2: magenta;
+	--color_3: yellow;
+	--color_4: cyan;
+	--color_5: red;
+
+	--screen_min: 400;
+}
+
+body {
+  font-family: var(--font_1);
+  background: var(--color_3);
+	color: var(--color_0);
+  margin: 0px;
+}
