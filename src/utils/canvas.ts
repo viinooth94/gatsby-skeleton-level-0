@@ -1,9 +1,13 @@
 /* Utils Canvas
-* 2021_2022 
-* v 0.3.0
+* 2021_2023
+* v 0.3.1
 */
 
 import { useState, useRef, useLayoutEffect } from "react";
+
+
+
+
 
 function set_window(canvas : any) {
   // need that to pass gatsby build
@@ -43,11 +47,28 @@ export function GetHeight() {
   return GetWindow().height;
 }
 
-export function Window_is_higher_than(value : number) {
-  let res = false;
-  if(GetWidth() > value) {
-    res = true;
-  } else return res;
+export function WidthHigherThan(value : number) {
+  const [arg, set_arg] = useState(0);
+  const browser_is = typeof window !== "undefined";
+  if(arg === 0 && browser_is) {
+    set_arg(value);
+  }
+
+  if(GetWidth() > arg) {
+    return true;
+  } else return false;
+}
+
+export function HeightHigherThan(value : number) {
+  const [arg, set_arg] = useState(0);
+  const browser_is = typeof window !== "undefined";
+  if(arg === 0 && browser_is) {
+    set_arg(value);
+  }
+
+  if(GetHeight() > arg) {
+    return true;
+  } else return false;
 }
 
 export function in_canvas(cursor : any, pos : any, canvas : any) {

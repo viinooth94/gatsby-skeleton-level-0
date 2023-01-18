@@ -1,9 +1,9 @@
 import React from "react";
-// import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 import { LinkCell, NavCell} from "../goto";
 import { MenuMarkdown } from "./menu_markdown";
 import { get_css_value}  from "../../utils/utils"
-import { Window_is_higher_than, GetWidth }  from "../../utils/canvas"
+import { WidthHigherThan, GetWidth, useWindow }  from "../../utils/canvas"
 
 const big_box = {
 	boxShadow:"none",
@@ -60,38 +60,8 @@ function MenuSmall() {
 }
 
 
-
-
 export function Menu() {
-	// const [higher, set_higher] = useState(Window_is_higher_than(600));
-	
-
-	// useEffect(() => {
-	// 	// console.log(Window_is_higher_than(600));
-	// 	// console.log(window_is_higher_than(600));
-	// 	// if(window_is_higher_than(600)) {
-	// 	// 	set_higher(true);
-	// 	// } else {
-	// 	// 	set_higher(false);
-	// 	// }
-	// }, [higher]);
-
-	// return <div>Truc</div>
-	// console.log("Menu(): width",GetWidth());
-	// Window_is_higher_than(600
-	if(true) {
-		// console.log("GRAND");
-		return <MenuBig/>
-	} else {
-		console.log("PETIT");
-		return <MenuSmall/>
-	}
+	return <div>
+		{WidthHigherThan(600) ? <MenuBig/> : <MenuSmall/>}
+	</div>
 }
-
-// export function Menu() {
-// 	if(window_is_higher_than(600)) {
-// 		return <MenuBig/>
-// 	} else {
-// 		return <MenuSmall/>
-// 	}
-// }
