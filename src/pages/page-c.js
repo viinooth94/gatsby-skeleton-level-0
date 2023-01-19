@@ -1,5 +1,5 @@
 import React from "react";
-import {LayoutMain} from "../components/layout.js";
+import {LayoutMain} from "../components/struct/layout.js";
 
 /*
 it's necessary to export the Components Page as default

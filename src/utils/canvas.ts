@@ -1,6 +1,6 @@
 /* Utils Canvas
 * 2021_2023
-* v 0.3.1
+* v 0.4.0
 */
 
 import { useState, useRef, useLayoutEffect } from "react";
@@ -18,7 +18,7 @@ function set_window(canvas : any) {
   }
 }
 
-export function GetWindow() {
+export function use_get_window() {
   let canvas = {width:0, height:0};
   set_window(canvas)
 
@@ -39,34 +39,34 @@ export function GetWindow() {
 }
 
 
-export function GetWidth() {
-  return GetWindow().width;
+export function use_get_width() {
+  return use_get_window().width;
 }
 
-export function GetHeight() {
-  return GetWindow().height;
+export function use_get_heightt() {
+  return use_get_window().height;
 }
 
-export function WidthHigherThan(value : number) {
+export function use_width_higher_than(value : number) {
   const [arg, set_arg] = useState(0);
   const browser_is = typeof window !== "undefined";
   if(arg === 0 && browser_is) {
     set_arg(value);
   }
 
-  if(GetWidth() > arg) {
+  if(use_get_width() > arg) {
     return true;
   } else return false;
 }
 
-export function HeightHigherThan(value : number) {
+export function use_height_higher_than(value : number) {
   const [arg, set_arg] = useState(0);
   const browser_is = typeof window !== "undefined";
   if(arg === 0 && browser_is) {
     set_arg(value);
   }
 
-  if(GetHeight() > arg) {
+  if(use_get_width() > arg) {
     return true;
   } else return false;
 }

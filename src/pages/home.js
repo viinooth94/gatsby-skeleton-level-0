@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutHome } from "../components/layout.js";
+import { LayoutHome } from "../components/struct/layout.js";
 
 export function Home() {
   return <LayoutHome>

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { LayoutMarkdown } from "../components/layout";
+import { LayoutMarkdown } from "../components/struct/layout";
 
 // To understand how the generic page work and the system file naming :
 // https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/

@@ -1,5 +1,5 @@
 import React from "react";
-import {Layout404} from "../components/layout.js";
+import {Layout404} from "../components/struct/layout.js";
 
 export default function NotFoundPage () {
   return <Layout404><h1>Page not found : 404</h1></Layout404>;
