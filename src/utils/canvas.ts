@@ -6,9 +6,6 @@
 import { useState, useRef, useLayoutEffect } from "react";
 
 
-
-
-
 function set_window(canvas : any) {
   // need that to pass gatsby build
   const browser_is = typeof window !== "undefined";

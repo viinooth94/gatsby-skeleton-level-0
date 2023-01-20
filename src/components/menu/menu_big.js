@@ -14,7 +14,7 @@ const style_cell = {
 	padding: "1em",
 	color:"white",
 	fontFamily:"sans-serif",
-	border: "1px "+   get_css_value("--color_3") + " solid",
+	border: "1px "+ get_css_value("--color_3") + " solid",
 	cursor: "pointer",
 }
 

@@ -22,9 +22,6 @@ const style_cell = {
 }
 
 
-
-
-
 const header_style = {
   display: "flex",
   alignItems: "center",
