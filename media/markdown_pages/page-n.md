@@ -1,6 +1,7 @@
 ---
 slug: "/page-n"
-title: "NNN"
+menu: "César"
+title: "Vini vidi vici"
 ---
 
 # Alea jacta est

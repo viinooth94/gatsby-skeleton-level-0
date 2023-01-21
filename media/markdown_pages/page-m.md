@@ -1,6 +1,7 @@
 ---
 slug: "/page-m"
-title: "MMM"
+menu: "Cane"
+title: "Un chien fidèle"
 ---
 
 # A cane non magno sæpe tenetur aper

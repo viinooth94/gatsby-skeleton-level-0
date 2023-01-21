@@ -1,17 +1,18 @@
 import React from "react";
-import {LinkCell} from "../goto";
+import {NavCell, LinkCell} from "../goto";
 import { useStaticQuery, graphql } from "gatsby";
 
-export function MenuMarkdown ({style}) {
+export function MenuMarkdown ({style_box, style_cell}) {
 	const data = useStaticQuery(
     graphql`
       query {
-				allFile(filter: {sourceInstanceName: {eq: "markdown"}}) {
+				allFile(filter: {sourceInstanceName: {eq: "markdown pages"}}) {
 					edges {
 						node {
 							childrenMarkdownRemark {
 								frontmatter {
 									slug
+									menu
 									title
 								}
 							}
@@ -28,13 +29,15 @@ export function MenuMarkdown ({style}) {
 		const obj = {
 			key: key,
 			to: elem.node.childrenMarkdownRemark[0].frontmatter.slug,
-			name: elem.node.childrenMarkdownRemark[0].frontmatter.title,
+			name: elem.node.childrenMarkdownRemark[0].frontmatter.menu,
 		}
 		menu.push(obj);
 		return null;
 	})
 
 	return <>{menu.map((elem, key) => 
-		<LinkCell key={key} to={elem.to} style={style}>{elem.name}</LinkCell>
+		<div style={style_box}>
+			<NavCell key={key} to={elem.to} style={style_cell}>{elem.name}</NavCell>
+		</div>
 	)}</>
 }

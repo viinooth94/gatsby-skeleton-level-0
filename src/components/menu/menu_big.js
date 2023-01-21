@@ -4,20 +4,24 @@ import { get_css_value}  from "../../utils/utils";
 import { MenuContent} from "./menu_content";
 
 const style_box = {
-	boxShadow:"none",
+	margin: "0 auto",
 	display: "flex",
-	alignItem :"center",
-	background: "red",
+	alignItem: "center",
+	justifyContent: "space-between",
+	maxWidth: "1000px",
 }
 
 const style_cell = {
-	padding: "1em",
-	color:"white",
+	// display: "block",
+	whiteSpace: "nowrap",
+	width: "70px",
+	height: "40px",
+	color: get_css_value("--color_0"),
 	fontFamily:"sans-serif",
-	border: "1px "+ get_css_value("--color_3") + " solid",
+	border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
 }
 
 export function MenuBig() {
-	return  <MenuContent style_box={style_box} style_cell={style_cell}/>
+	return <MenuContent style_box={style_box} style_cell={style_cell}/>
 }

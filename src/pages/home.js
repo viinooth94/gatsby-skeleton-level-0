@@ -7,4 +7,6 @@ export default function Home() {
   </LayoutHome>;
 };
 
+export const Head = () => <title>Home</title>
+
 

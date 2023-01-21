@@ -7,15 +7,23 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
+    // image part
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
-
+    // file importation
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown`,
-        path: `${__dirname}/media/markdown`,
+        name: `markdown pages`,
+        path: `${__dirname}/media/markdown_pages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown content`,
+        path: `${__dirname}/media/markdown_content`,
       },
     },
     {
@@ -24,9 +32,7 @@ module.exports = {
         path: `${__dirname}/media/images`,
       },
     },
-    //
-    // `gatsby-transformer-remark`,
-    // 
+    // Markdonw part
     {
       resolve : `gatsby-transformer-remark`,
       options : {

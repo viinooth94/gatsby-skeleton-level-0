@@ -1,0 +1,8 @@
+.design {
+	border: solid 2px var(--color_0);
+}
+
+.children {
+	padding : 1em;
+	
+}

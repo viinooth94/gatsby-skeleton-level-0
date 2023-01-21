@@ -27,8 +27,10 @@ export default function PageMarkdown({data}) {
 	return <LayoutMarkdown>
 		<CompMarkdown data_md={markdownRemark}/>
 	</LayoutMarkdown>
-
 }
+
+export const Head = ({data}) => <title>{data.markdownRemark.frontmatter.title}</title>
+
 
 export const pageQuery = graphql`
   query($id: String!) {
