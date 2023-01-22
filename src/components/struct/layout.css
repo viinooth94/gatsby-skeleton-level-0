@@ -6,3 +6,29 @@
 	padding : 1em;
 	
 }
+
+input {
+  background: var(--color_3);
+  box-sizing: border-box;
+  padding: 0.3em;
+  margin: 0.3em;
+}
+input[type="text"] {
+  width: 25em;
+}
+
+input[type="email"] {
+  width: 20em;
+}
+
+textarea {
+  background: var(--color_3);
+  margin: 0.3em;
+  width: 25em;
+  height: 10em;
+}
+
+button {
+	border: "none";
+	background: var(--color_4);
+}

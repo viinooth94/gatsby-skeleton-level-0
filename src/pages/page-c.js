@@ -8,22 +8,57 @@ If it's not do, Gatsby Router don't find the page and return an error
 */
 
 function ContentMarkdownHtml({html}) {
-	// take in the data {} just what is necessary by destructuration
-  // const { frontmatter, html } = data_md
   return <div dangerouslySetInnerHTML={{ __html: html }} />
 }
 
+function Form({ name, children }) {
+  const style = {
+    paddingLeft:" 0.3em",
+  }
+
+  return (
+    <form name={name} method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value={name} />
+      <div>
+        <label>
+          <input type="text" name="first name" placeHolder="prénom" />
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="text" name="family name" placeHolder="nom" />
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="email" name="email" placeHolder="courriel" />
+        </label>
+      </div>
+      <div>
+        <label>
+          <textarea name="message" placeHolder={children}></textarea>
+        </label>
+      </div>
+      <div style={style}>
+        <button type="submit">Envoyer</button>
+      </div>
+    </form>
+  );
+}
 
 
 export default function PageC ({data}) {
   return <LayoutMain>
     <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
     <ContentMarkdownHtml html={data.allMarkdownRemark.edges[0].node.html} />
+    <Form name="contact">
+          Un petit message pour expliquer pourquoi, comment... et au diable le
+          reste.
+        </Form>
   </LayoutMain>;
 };
 
 export const Head = ({data}) => <title>{data.allMarkdownRemark.edges[0].node.frontmatter.categorie}</title>
-
 
 
 export const myQuery = graphql`

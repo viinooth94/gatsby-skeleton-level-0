@@ -1,14 +1,15 @@
 ---
-categorie : "contact"
-lang: "fr"
+
 menu: "nous contacter"
 title: "NOUS CONTACTER"
+categorie : "contact"
+lang: "fr"
 ---
 
-# mail
+## mail
 
 contact@monsite.fr
 
-# réseaux
+## réseaux
 
 twitter @pseudo
