@@ -4,7 +4,9 @@
 module.exports = {
   siteMetadata: {
     title: `Gatsby Skeleton`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://squelette.netlify.app/`,
+    version: `0.0.1`,
+    author: `stanislas Marçais`,
   },
   plugins: [
     // image part
