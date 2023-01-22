@@ -1,6 +1,8 @@
 ---
 menu: "page b"
 title: "PAGE B"
+categorie : "misc"
+lang: "fr"
 ---
 # Voluptat latur? Cuption conseque 
 

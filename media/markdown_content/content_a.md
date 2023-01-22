@@ -1,6 +1,8 @@
 ---
 menu: "page a"
 title: "PAGE A"
+categorie : "misc"
+lang: "fr"
 ---
 
 # Tempersp erfernam, voluptatur?

@@ -2,6 +2,8 @@
 slug: "/page-n"
 menu: "César"
 title: "Vini vidi vici"
+categorie : "page"
+lang: "fr"
 ---
 
 # Alea jacta est
