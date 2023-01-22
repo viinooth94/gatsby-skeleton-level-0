@@ -13,7 +13,6 @@ const style_box = {
 
 const style_cell = {
 	// display: "block",
-	whiteSpace: "nowrap",
 	width: "70px",
 	height: "40px",
 	color: get_css_value("--color_0"),

@@ -11,36 +11,36 @@ function ContentMarkdownHtml({html}) {
   return <div dangerouslySetInnerHTML={{ __html: html }} />
 }
 
-function Form({ name, children }) {
+function Form(props) {
   const style = {
     paddingLeft:" 0.3em",
   }
 
   return (
-    <form name={name} method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value={name} />
+    <form name={props.form_name} method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value={props.form_name} />
       <div>
         <label>
-          <input type="text" name="first name" placeHolder="prénom" />
+          <input type="text" name="first name" placeHolder={props.firstname}/>
         </label>
       </div>
       <div>
         <label>
-          <input type="text" name="family name" placeHolder="nom" />
+          <input type="text" name="family name" placeHolder={props.name} />
         </label>
       </div>
       <div>
         <label>
-          <input type="email" name="email" placeHolder="courriel" />
+          <input type="email" name="email" placeHolder={props.mail} />
         </label>
       </div>
       <div>
         <label>
-          <textarea name="message" placeHolder={children}></textarea>
+          <textarea name="message" placeHolder={props.message}></textarea>
         </label>
       </div>
       <div style={style}>
-        <button type="submit">Envoyer</button>
+        <button type="submit">{props.send}</button>
       </div>
     </form>
   );
@@ -51,10 +51,12 @@ export default function PageC ({data}) {
   return <LayoutMain>
     <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
     <ContentMarkdownHtml html={data.allMarkdownRemark.edges[0].node.html} />
-    <Form name="contact">
-          Un petit message pour expliquer pourquoi, comment... et au diable le
-          reste.
-        </Form>
+    <Form form_name="contact"
+          firstname= {data.allMarkdownRemark.edges[0].node.frontmatter.firstname}
+          name= {data.allMarkdownRemark.edges[0].node.frontmatter.lastname}
+          mail= {data.allMarkdownRemark.edges[0].node.frontmatter.mail}
+          message= {data.allMarkdownRemark.edges[0].node.frontmatter.message}
+          send= {data.allMarkdownRemark.edges[0].node.frontmatter.send} />
   </LayoutMain>;
 };
 
@@ -70,6 +72,11 @@ export const myQuery = graphql`
             categorie
             title
             menu
+            firstname
+            lastname
+            mail
+            send
+            message
           }
           html
         }
