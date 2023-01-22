@@ -2,6 +2,8 @@
 slug: "/page-m"
 menu: "Cane"
 title: "Un chien fidèle"
+categorie : "page"
+lang: "fr"
 ---
 
 # A cane non magno sæpe tenetur aper
