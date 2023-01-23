@@ -1,5 +1,5 @@
 import React from "react";
-import {NavCell } from "../goto";
+import {NavCell } from "../gui";
 import { useStaticQuery, graphql } from "gatsby";
 
 export function MenuMarkdown ({style_box, style_cell}) {

@@ -1,15 +1,14 @@
 import React from "react";
 import {LayoutMain} from "../components/struct/layout.js";
 import { graphql } from "gatsby";
+import { ContentMarkdownHtml } from "../components/markdown.js";
 
 /*
 it's necessary to export the Components Page as default
 If it's not do, Gatsby Router don't find the page and return an error
 */
 
-function ContentMarkdownHtml({html}) {
-  return <div dangerouslySetInnerHTML={{ __html: html }} />
-}
+
 
 function Form(props) {
   const style = {

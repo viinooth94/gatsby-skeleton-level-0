@@ -1,5 +1,7 @@
 import React from "react";
+import { graphql } from "gatsby";
 import { LayoutMain } from "../components/struct/layout.js";
+import { ContentMarkdownHtml } from "../components/markdown.js";
 
 /*
 it's necessary to export the Components Page as default

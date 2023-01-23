@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { NavCell } from "../goto";
+import { NavCell } from "../gui";
 
 export function Legal() {
 	const style_cell = {

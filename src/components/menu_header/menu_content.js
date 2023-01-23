@@ -1,5 +1,5 @@
 import React from "react";
-import { NavCell, NavCellBox} from "../goto";
+import { NavCell, NavCellBox} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import { useStaticQuery, graphql } from "gatsby";
 
