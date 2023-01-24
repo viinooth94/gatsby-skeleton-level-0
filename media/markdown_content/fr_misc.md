@@ -1,6 +1,6 @@
 ---
-menu: "page a"
-title: "PAGE A"
+menu: "misc"
+title: "MISC"
 categorie : "misc"
 lang: "fr"
 ---

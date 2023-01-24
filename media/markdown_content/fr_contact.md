@@ -10,7 +10,7 @@ message: "Un petit message pour expliquer pourquoi, comment, où..."
 lang: "fr"
 ---
 
-## mail
+## couriel
 
 par mail, vous pouvez remplir le formulaire ci-desous et nous vous recontacterons dès que nous aurons pris connaissance de votre meeqage.
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { NavCell, NavCellBox} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
-import { useStaticQuery, graphql } from "gatsby";
+import tree from "./../../../media/tree.json";
 
 import home_logo from "./../../../media/images/home.png";
 
@@ -13,28 +13,6 @@ export function GoHome({className, style}) {
 
 
 export function MenuContent({className_box, style_box, className_cell,  style_cell, in_line}) {
-	const data = useStaticQuery(
-    graphql`
-		query {
-			allMarkdownRemark(filter: {frontmatter: {categorie: {eq: "tree"}}}) {
-				edges {
-					node {
-						frontmatter {
-							menu_a
-							menu_b
-							menu_c
-						}
-					}
-				}
-			}
-		}
-    `
-	)
-
-	const frontmatter = data.allMarkdownRemark.edges[0].node.frontmatter;
-	console.log("frontmatter", frontmatter);
-	console.log("frontmatter a", frontmatter.menu_a);
-
 	const temp_box = {
 		position: "relative",
 		top: 0,
@@ -57,29 +35,10 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 
 	return <div className={className_box} style={style_box}>
 		{in_line !== false ? <div style={box}><GoHome style={cell}/></div> : <></>}
-		<NavCellBox to="/page-a" style_box={box} style_cell={cell}>{frontmatter.menu_a}</NavCellBox>
-		<NavCellBox to="/page-b" style_box={box} style_cell={cell}>{frontmatter.menu_b}</NavCellBox>
-		<NavCellBox to="/page-c" style_box={box} style_cell={cell}>{frontmatter.menu_c}</NavCellBox>
-		{/* <NavCellBox to="/page-a" style_box={box} style_cell={cell}>PAGE A</NavCellBox>
-		<NavCellBox to="/page-b" style_box={box} style_cell={cell}>PAGE B</NavCellBox>
-		<NavCellBox to="/page-c" style_box={box} style_cell={cell}>PAGE C</NavCellBox> */}
+		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
+		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
+		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
 		<MenuMarkdown style_box={box} style_cell={cell}/>
-		<NavCellBox to="/404" style_box={box} style_cell={cell}>404</NavCellBox>
+		<NavCellBox to="/log" style_box={box} style_cell={cell}>login</NavCellBox>
 	</div>
 }
-
-// export const myQuery = graphql`
-//   query {
-//     allMarkdownRemark(filter: {frontmatter: {categorie: {eq: "tree"}}}) {
-//       edges {
-//         node {
-//           frontmatter {
-//             menu_a
-// 						menu_b
-// 						menu_c
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
