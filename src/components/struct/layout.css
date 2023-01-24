@@ -21,6 +21,10 @@ input[type="email"] {
   width: 20em;
 }
 
+input[type="password"] {
+  width: 20em;
+}
+
 textarea {
   background: var(--color_3);
   margin: 0.3em;

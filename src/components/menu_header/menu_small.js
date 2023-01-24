@@ -40,7 +40,7 @@ const home_style = {
 	height: "30px",
 	color: get_css_value("--color_0"),
 	fontFamily:"sans-serif",
-	border: "1px "+ get_css_value("--color_0") + " solid",
+	// border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
 }
 
