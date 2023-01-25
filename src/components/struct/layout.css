@@ -1,10 +1,19 @@
-.design {
-	border: solid 2px var(--color_0);
+.global {
+  color: var(--color_text);
+}
+
+.header {
+  background: var(--color_header);
+  /* color: var(--color_text);
+  border: solid 2px var(--color_0); */
 }
 
 .children {
 	padding : 1em;
-	
+}
+
+.footer {
+  background: var(--color_footer);
 }
 
 input {

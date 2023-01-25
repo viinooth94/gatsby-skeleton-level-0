@@ -1,6 +1,6 @@
 import React from "react";
 
-import { get_css_value}  from "../../utils/utils";
+import { get_css_value}  from "../../utils/h";
 import { MenuContent} from "./menu_content";
 
 const style_box = {
@@ -12,12 +12,9 @@ const style_box = {
 }
 
 const style_cell = {
-	// display: "block",
 	width: "70px",
-	height: "40px",
-	color: get_css_value("--color_0"),
+	height: get_css_value("--height_header"),
 	fontFamily:"sans-serif",
-	// border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
 }
 

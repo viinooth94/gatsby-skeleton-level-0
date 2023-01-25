@@ -6,7 +6,7 @@ import { ContentMarkdownHtml, LayoutMain, Form } from "../components/h.js"
 it's necessary to export the Components Page as default
 If it's not do, Gatby Router don't find the page and return an error
 */
-export default function Log ({data}) {
+export default function Account({data}) {
   const style_cell = {
     width: "100px",
   }
@@ -27,7 +27,6 @@ export default function Log ({data}) {
 
   const node = data.allMarkdownRemark.edges[0].node;
 
-  console.log("node.frontmatter.mail",node.frontmatter.mail);
   return <LayoutMain>
     <h2>{node.frontmatter.title}</h2>
     <ContentMarkdownHtml html={node.html} />

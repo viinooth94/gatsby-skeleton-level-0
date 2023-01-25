@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { get_css_value}  from "../../utils/utils";
-import { GoHome, MenuContent} from "./menu_content";
+import { get_css_value}  from "../../utils/h";
+import { GoHome, MenuContent } from "./menu_content";
 
 const header_style = {
 	margin: "0 auto",
@@ -14,17 +14,16 @@ const header_style = {
 }
 
 const style_box = {
-	background: "red",
+	background: get_css_value("--color_menu_small"),
 	width: "100%",
 	height:"100vh",
 }
 
 const style_cell = {
-	width: "60px",
-	height: "40px",
-	color:"white",
-	fontFamily:"sans-serif",
-	border: "1px "+ get_css_value("--color_0") + " solid",
+	width: "0px",
+	height: get_css_value("--height_header"),
+	fontFamily: get_css_value("--font_current"),
+	// border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
 }
 
@@ -38,8 +37,8 @@ const hamburger_style = {
 
 const home_style = {
 	height: "30px",
-	color: get_css_value("--color_0"),
-	fontFamily:"sans-serif",
+	// color: get_css_value("--color_0"),
+	fontFamily: get_css_value("--font_current"),
 	// border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import { get_css_value } from "../../utils/utils";
 import { useStaticQuery, graphql } from "gatsby";
-import {Legal} from "./../menu_footer/menu_content_footer.js"
+import { get_css_value } from "../../utils/h";
+import { Legal } from "./../menu_footer/menu_content_footer.js"
 
 const style_footer = {
 	margin: "auto 0",
