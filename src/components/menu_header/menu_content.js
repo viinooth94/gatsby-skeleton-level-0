@@ -2,6 +2,7 @@ import React from "react";
 import { NavCell, NavCellBox, Dropdown} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import tree from "./../../../media/tree.json";
+import { get_css_value }  from "../../utils/h";
 
 import home_logo from "./../../../media/images/home.png";
 
@@ -16,9 +17,11 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 	const temp_box = {
 		position: "relative",
 		top: 0,
+		background: get_css_value("--color_menu_big"),
 	};
 	if(in_line === false) {
 		temp_box["left"] = "50%";
+		temp_box["background"] = get_css_value("--color_menu_small");
 	}
 	
 	const temp_cell = {

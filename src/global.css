@@ -1,5 +1,5 @@
 :root {
-  --font_1: Arial, Helvetica, sans-serif;
+  --font_current: Arial, Helvetica, sans-serif;
 
 	--color_0: black;
 	--color_1: white;
@@ -8,13 +8,26 @@
 	--color_3: yellow;
 	--color_4: cyan;
 	--color_5: red;
+	--color_6: purple;
+
+	--color_text: var(--color_6);
+
+	--color_global: var(--color_3);
+
+	--color_header: var(--color_4);
+	--color_menu_big: var(--color_4);
+	--color_menu_small: var(--color_3);
+
+	--color_footer: var(--color_4);
 
 	--screen_min: 400;
+
+	--height_header: 40px;
 }
 
 body {
-  font-family: var(--font_1);
-  background: var(--color_3);
-	color: var(--color_0);
+  font-family: var(--font_current);
+  background: var(--color_global);
+	color: var(--color_text);
   margin: 0px;
 }

@@ -40,7 +40,7 @@ export function use_get_width() {
   return use_get_window().width;
 }
 
-export function use_get_heightt() {
+export function use_get_height() {
   return use_get_window().height;
 }
 

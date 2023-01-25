@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, navigate } from "gatsby";
+import { get_css_value }  from "../utils/h";
 
 export function LinkCell ({to, className, style, children}) {
 	return <div className={className} style={style}>
@@ -31,6 +32,7 @@ export function Dropdown({className_box, style_box, className_cell, style_cell, 
 	const style_display = {
 		display: "flex",
 		flexDirection: "column",
+		padding: get_css_value("--height_header") + " 0",
 	}
 
 	function mouse_click(event) {
