@@ -1,8 +1,7 @@
 import React from "react";
 import { use_width_higher_than } from "../../utils/canvas";
 import { get_css_value}  from "../../utils/utils";
-import { MenuBig } from "../menu_header/menu_big";
-import { MenuSmall } from "../menu_header/menu_small";
+import { MenuBig, MenuSmall} from "./../h.js"
 
 const header_style = {
 	background: get_css_value("--color_4"),

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavCell, NavCellBox} from "../gui";
+import { NavCell, NavCellBox, Dropdown} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import tree from "./../../../media/tree.json";
 
@@ -38,7 +38,13 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
 		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
 		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
-		<MenuMarkdown style_box={box} style_cell={cell}/>
-		<NavCellBox to="/log" style_box={box} style_cell={cell}>login</NavCellBox>
+		{/* two ways to display the dynamic content */}
+		<Dropdown style_box={box} style_cell={cell} name={tree.fr.other}>
+			<MenuMarkdown style_box={box} style_cell={cell}/>
+		</Dropdown>
+		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
+
+		{/* create a false account to give the opportunity to connect */}
+		<NavCellBox to="/account" style_box={box} style_cell={cell}>{tree.fr.login}</NavCellBox>
 	</div>
 }
