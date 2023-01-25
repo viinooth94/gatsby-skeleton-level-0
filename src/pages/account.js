@@ -27,7 +27,6 @@ export default function Account({data}) {
 
   const node = data.allMarkdownRemark.edges[0].node;
 
-  console.log("node.frontmatter.mail",node.frontmatter.mail);
   return <LayoutMain>
     <h2>{node.frontmatter.title}</h2>
     <ContentMarkdownHtml html={node.html} />

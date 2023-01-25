@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { get_css_value}  from "../../utils/h";
-import { GoHome, MenuContent} from "./menu_content";
+import { GoHome, MenuContent } from "./menu_content";
 
 const header_style = {
 	margin: "0 auto",

@@ -1,8 +1,15 @@
+// REACT
 import React from "react";
+import { useContext } from "react";
+// APP
+import { MenuContext } from "../menu_header/menu_content"
 import {NavCell } from "../gui";
 import { useStaticQuery, graphql } from "gatsby";
 
 export function MenuMarkdown ({style_box, style_cell}) {
+	// CONTEXT
+	const { set_num_item_bd } = useContext(MenuContext); // context
+	// GRAPHQL
 	const data = useStaticQuery(
     graphql`
       query {
@@ -34,6 +41,9 @@ export function MenuMarkdown ({style_box, style_cell}) {
 		menu.push(obj);
 		return null;
 	})
+	// context
+	set_num_item_bd(menu.length); 
+
 
 	return <>{menu.map((elem, key) => 
 		<div style={style_box}>
