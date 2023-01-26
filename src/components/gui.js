@@ -28,8 +28,8 @@ export function NavCellBox({to, className_box, style_box, className_cell, style_
 }
 
 
-export function Dropdown({className_box, style_box, className_cell, style_cell, name, children}) {
-	const { dropdown_is, set_dropdown_is } = useContext(HeaderContext);
+export function Dropdown({className_box, style_box, className_cell, style_cell, name, is, set_is, children}) {
+	// const { dropdown_is, set_dropdown_is } = useContext(HeaderContext);
 
 	const style_display = {
 		display: "flex",
@@ -39,15 +39,38 @@ export function Dropdown({className_box, style_box, className_cell, style_cell, 
 
 	function mouse_click(event) {
 		event.preventDefault();
-		dropdown_is ? set_dropdown_is(false) : set_dropdown_is(true); // context
+		is ? set_is(false) : set_is(true); // context
  	}
 
 	return <div className={className_box} style={style_box}>
 		<div className={className_cell} style={style_cell} onClick={mouse_click}>{name}</div>
-		{dropdown_is ? 
+		{is ? 
 			<div style={style_display}>
 				{children}
 			</div> : <></>}
 	</div>
 }
+
+// export function Dropdown({className_box, style_box, className_cell, style_cell, name, children}) {
+// 	const { dropdown_is, set_dropdown_is } = useContext(HeaderContext);
+
+// 	const style_display = {
+// 		display: "flex",
+// 		flexDirection: "column",
+// 		padding: get_css_value("--height_header") + " 0",
+// 	}
+
+// 	function mouse_click(event) {
+// 		event.preventDefault();
+// 		dropdown_is ? set_dropdown_is(false) : set_dropdown_is(true); // context
+//  	}
+
+// 	return <div className={className_box} style={style_box}>
+// 		<div className={className_cell} style={style_cell} onClick={mouse_click}>{name}</div>
+// 		{dropdown_is ? 
+// 			<div style={style_display}>
+// 				{children}
+// 			</div> : <></>}
+// 	</div>
+// }
 

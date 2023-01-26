@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { HeaderContext } from "../../context";
 import { NavCell, NavCellBox, Dropdown} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
+import { MenuRegion } from "./menu_region";
 import tree from "./../../../media/tree.json";
 import { get_css_value }  from "../../utils/h";
 import home_logo from "./../../../media/images/home.png";
@@ -16,10 +17,25 @@ export function GoHome({className, style}) {
 	</NavCell>
 }
 
+export function Region({className_box, style_box, className_cell, style_cell}) {
+	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+	return <Dropdown style_box={style_box} style_cell={style_cell} name={tree[lang].lang[lang]} is={lang_db_is} set_is={set_lang_db_is}>
+		<MenuRegion style_box={style_box} style_cell={style_cell} content={Object.values(tree[lang].lang)} />
+	</Dropdown>
+}
+
+
+function Other({className_box, style_box, className_cell, style_cell}) {
+	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
+	return <Dropdown style_box={style_box} style_cell={style_cell} name={tree.fr.other} is={other_db_is} set_is={set_other_db_is}>
+		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
+	</Dropdown>
+}
+
 
 export function MenuContent({className_box, style_box, className_cell,  style_cell, in_line}) {
 	// context part, import what you need
-	const { dropdown_is, num_item_bd } = useContext(HeaderContext);
+	const { other_db_is, num_item_bd } = useContext(HeaderContext);
 	// Design part
 	const temp_box = {
 		position: "relative",
@@ -45,7 +61,8 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 
 	// create the drowdown offset for the small menu
 	const box_offset = Object.assign({}, box);
-	if(dropdown_is && in_line === false) {
+	// create offset only if all the menu is vertical dropdown and regular one
+	if(other_db_is && in_line === false) {
 		// here we profit than Javascript is not typed, sometime is good !
 		let value = get_css_value("--height_header").slice(0,-2);
 		box_offset["padding"] = (value*num_item_bd)+"px" + " 0";
@@ -59,11 +76,9 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
 		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
 		{/* two ways to display the dynamic content */}
-		<Dropdown style_box={box} style_cell={cell} name={tree.fr.other}>
-			<MenuMarkdown style_box={box} style_cell={cell}/>
-		</Dropdown>
+		<Other style_box={box} style_cell={cell}/>
 		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
-		
+		{in_line !== false ? <Region style_box={box} style_cell={cell}/> : <></>}
 		{/* create a false account to give the opportunity to connect */}
 		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
 	</div>

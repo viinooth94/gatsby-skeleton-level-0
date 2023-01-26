@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { get_css_value}  from "../../utils/h";
-import { GoHome, MenuContent } from "./menu_content";
+import { GoHome, MenuContent, Region } from "./menu_content";
 
 const header_style = {
 	margin: "0 auto",
@@ -10,7 +10,7 @@ const header_style = {
 	justifyContent : "space-between",
 
 	width: "95%",
-	height: "40px",
+	height: get_css_value("--height_header"),
 }
 
 const style_box = {
@@ -29,18 +29,28 @@ const style_cell = {
 
 
 const hamburger_style = {
-	width: "30px",
-	height: "30px",
-	background : get_css_value("--color_2"),
+	width: get_css_value("--width_header_cell"),
+	height: get_css_value("--height_header_cell"),
+	background: get_css_value("--color_2"),
 	cursor: "pointer",
 }
 
 const home_style = {
-	height: "30px",
+	height: get_css_value("--height_header_cell"),
 	// color: get_css_value("--color_0"),
 	fontFamily: get_css_value("--font_current"),
 	// border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
+}
+
+
+const region_style_box = {
+	// margin: "0 auto",
+	width: get_css_value("--width_header_cell"),
+	height: get_css_value("--height_header"),
+	background: get_css_value("--color_header"),
+	// textAlign: "center",
+	// alignItem: "center",
 }
 
 export function MenuSmall() {
@@ -54,6 +64,7 @@ export function MenuSmall() {
 		<div style={header_style}>
 			<GoHome style={home_style}/>
 			<div style={hamburger_style} onClick={mouse_click}></div>
+			<Region style_box={region_style_box}/>
 		</div>
 		{is ? <MenuContent style_box={style_box} style_cell={style_cell} in_line={false}/> : null}
 	</>

@@ -23,6 +23,8 @@
 	--screen_min: 600px;
 
 	--height_header: 40px;
+	--height_header_cell: 30px;
+	--width_header_cell: 30px;
 }
 
 body {
