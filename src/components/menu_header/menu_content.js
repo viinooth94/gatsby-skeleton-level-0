@@ -1,16 +1,14 @@
 //REACT
 import React from "react";
-import { useState, createContext, useContext } from "react";
-
+import { useContext } from "react";
 // APP
+import { HeaderContext } from "../../context";
 import { NavCell, NavCellBox, Dropdown} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import tree from "./../../../media/tree.json";
 import { get_css_value }  from "../../utils/h";
-
 import home_logo from "./../../../media/images/home.png";
 
-export const MenuContext = createContext(null);
 
 export function GoHome({className, style}) {
 	return <NavCell to="/" className={className} style={style}>
@@ -20,10 +18,8 @@ export function GoHome({className, style}) {
 
 
 export function MenuContent({className_box, style_box, className_cell,  style_cell, in_line}) {
-	// context part
-	const [dropdown_is, set_dropdown_is] = useState(false);
-	const [num_item_bd, set_num_item_bd] = useState(0);
-	// const { dropdown_is, set_dropdown_is } = useContext(MenuContext); // context
+	// context part, import what you need
+	const { dropdown_is, num_item_bd } = useContext(HeaderContext);
 	// Design part
 	const temp_box = {
 		position: "relative",
@@ -55,20 +51,20 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		box_offset["padding"] = (value*num_item_bd)+"px" + " 0";
 	}
 
-	return <MenuContext.Provider value={{dropdown_is, set_dropdown_is, num_item_bd, set_num_item_bd}}>
-		<div className={className_box} style={style_box}>
-			{in_line !== false ? <div style={box}><GoHome style={cell}/></div> : <></>}
-			<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
-			<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
-			<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
-			{/* two ways to display the dynamic content */}
-			<Dropdown style_box={box} style_cell={cell} name={tree.fr.other}>
-				<MenuMarkdown style_box={box} style_cell={cell}/>
-			</Dropdown>
-			{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
-			
-			{/* create a false account to give the opportunity to connect */}
-			<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
-		</div>
-	</MenuContext.Provider>
+	return <div className={className_box} style={style_box}>
+		{/* Display link to home or not */}
+		{in_line !== false ? <div style={box}><GoHome style={cell}/></div> : <></>}
+		{/* Content */}
+		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
+		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
+		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
+		{/* two ways to display the dynamic content */}
+		<Dropdown style_box={box} style_cell={cell} name={tree.fr.other}>
+			<MenuMarkdown style_box={box} style_cell={cell}/>
+		</Dropdown>
+		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
+		
+		{/* create a false account to give the opportunity to connect */}
+		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
+	</div>
 }

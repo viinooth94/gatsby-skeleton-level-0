@@ -1,7 +1,7 @@
 import React from "react";
 
 import { get_css_value}  from "../../utils/h";
-import { MenuContent} from "./menu_content";
+import { MenuContent } from "./menu_content";
 
 const style_box = {
 	margin: "0 auto",
