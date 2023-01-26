@@ -1,13 +1,15 @@
 // REACT
 import React from "react";
 import { useContext } from "react";
+// APP
+import { Box } from "./../gui"
 
 function Cell ({className_box, style_box, className_cell, style_cell, children}) {
-	return <div className={className_box} style={style_box}>
+	return <Box className={className_box} style={style_box}>
 		<div className={className_cell} style={style_cell}>
 			{children}
 		</div>
-	</div>
+	</Box>
 }
 
 export function MenuRegion({className_box, style_box, className_cell, style_cell, content}) {

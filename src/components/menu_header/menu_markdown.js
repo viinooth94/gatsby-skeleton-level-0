@@ -3,7 +3,7 @@ import React from "react";
 import { useContext } from "react";
 // APP
 import { HeaderContext } from "../../context";
-import { NavCell } from "../gui";
+import { NavCell, Box } from "../gui";
 import { useStaticQuery, graphql } from "gatsby";
 
 export function MenuMarkdown ({style_box, style_cell}) {
@@ -46,8 +46,8 @@ export function MenuMarkdown ({style_box, style_cell}) {
 
 
 	return <>{menu.map((elem, key) => 
-		<div style={style_box}>
+		<Box style={style_box}>
 			<NavCell key={key} to={elem.to} style={style_cell}>{elem.name}</NavCell>
-		</div>
+		</Box>
 	)}</>
 }

@@ -49,8 +49,13 @@ const region_style_box = {
 	width: get_css_value("--width_header_cell"),
 	height: get_css_value("--height_header"),
 	background: get_css_value("--color_header"),
+	// display:"flex",
 	// textAlign: "center",
 	// alignItem: "center",
+}
+
+const region_style_cell = {
+	textAlign: "center",
 }
 
 export function MenuSmall() {
@@ -64,7 +69,7 @@ export function MenuSmall() {
 		<div style={header_style}>
 			<GoHome style={home_style}/>
 			<div style={hamburger_style} onClick={mouse_click}></div>
-			<Region style_box={region_style_box}/>
+			<Region style_box={region_style_box} style_cell={region_style_cell}/>
 		</div>
 		{is ? <MenuContent style_box={style_box} style_cell={style_cell} in_line={false}/> : null}
 	</>
