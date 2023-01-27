@@ -53,6 +53,7 @@ export function Dropdown({className_box, style_box, className_cell, style_cell, 
 
 	function mouse_click(event) {
 		event.preventDefault();
+		// window.location.reload();
 		is ? set_is(false) : set_is(true); // context
  	}
 

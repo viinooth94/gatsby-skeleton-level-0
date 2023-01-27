@@ -49,18 +49,15 @@ const home_style_cell = {
 
 
 const region_style_box = {
-	// margin: "0 auto",
 	width: get_css_value("--width_header_cell"),
-	// width: get_css_value("--size_header_cell"),
 	height: get_css_value("--size_header_cell"),
 	background: get_css_value("--color_header"),
-	// display:"flex",
-	// textAlign: "center",
-	// alignItem: "center",
 }
 
 const region_style_cell = {
-	textAlign: "center",
+	position: "relative",
+  top: "50%",
+  transform: "translate(25%, -50%)",
 	cursor: "pointer",
 }
 
