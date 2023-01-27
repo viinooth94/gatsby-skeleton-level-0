@@ -2,13 +2,13 @@
 import React from "react";
 import { useContext } from "react";
 // APP
-import { MenuContext } from "../menu_header/menu_content"
-import {NavCell } from "../gui";
+import { HeaderContext } from "../../context";
+import { NavCell, Box } from "../gui";
 import { useStaticQuery, graphql } from "gatsby";
 
 export function MenuMarkdown ({style_box, style_cell}) {
 	// CONTEXT
-	const { set_num_item_bd } = useContext(MenuContext); // context
+	const { set_num_item_bd } = useContext(HeaderContext); // context
 	// GRAPHQL
 	const data = useStaticQuery(
     graphql`
@@ -46,8 +46,8 @@ export function MenuMarkdown ({style_box, style_cell}) {
 
 
 	return <>{menu.map((elem, key) => 
-		<div style={style_box}>
+		<Box style={style_box}>
 			<NavCell key={key} to={elem.to} style={style_cell}>{elem.name}</NavCell>
-		</div>
+		</Box>
 	)}</>
 }

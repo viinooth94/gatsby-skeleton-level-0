@@ -1,23 +1,25 @@
+// REACT
 import React from "react";
-
+// APP
 import { get_css_value}  from "../../utils/h";
-import { MenuContent} from "./menu_content";
+import { MenuContent } from "./menu_content";
 
-const style_box = {
+const header_box_style = {
 	margin: "0 auto",
 	display: "flex",
-	alignItem: "center",
 	justifyContent: "space-between",
+
+	height: get_css_value("--height_header"),
 	maxWidth: "1000px",
 }
 
 const style_cell = {
-	width: "70px",
-	height: get_css_value("--height_header"),
+	width: get_css_value("--width_header_cell"),
+	height: get_css_value("--height_header_cell"),
 	fontFamily:"sans-serif",
 	cursor: "pointer",
 }
 
 export function MenuBig() {
-	return <MenuContent style_box={style_box} style_cell={style_cell}/>
+	return <MenuContent style_box={header_box_style} style_cell={style_cell}/>
 }

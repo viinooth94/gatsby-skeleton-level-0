@@ -27,7 +27,6 @@ export function FormNetlify(props) {
 
 // The dot notation give the opportunity to only export Form, because the function is attached to From
 Form.Input = function Input({className_box, style_box, className_cell, style_cell, type, name, placeHolder}) {
-	console.log("Form.Input", placeHolder);
 	return <div className={className_box} style={style_box}>
 		<label>
 			<input className={className_cell} style={style_cell} type={type} name={name} placeHolder={placeHolder} />
