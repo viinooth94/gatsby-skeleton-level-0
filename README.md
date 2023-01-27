@@ -22,7 +22,7 @@
     npm run develop
     ```
 
-        ```shell
+    ```shell
     cd gatsby-skeleton/
     gatsby develop
     ```
