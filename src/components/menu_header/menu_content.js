@@ -42,13 +42,21 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 	const { other_db_is, num_item_bd } = useContext(HeaderContext);
 	// Design part
 	// maybe this value can be compute with useRef to be optimum ?
-	const height_header = get_css_value("--height_header").slice(0,-2);
-	const height_header_cell = get_css_value("--height_header_cell").slice(0,-2);
+	let hh = get_css_value("--height_header");
+	let hhc = get_css_value("--height_header_cell");
+	let height_header = 0;
+	let height_header_cell = 0;
+	if(hh !== undefined && hhc !== undefined) {
+		height_header = hh.slice(0,-2);
+		height_header_cell = hhc.slice(0,-2);
+	}
+	
 	const temp_box = {
 		position: "relative",
 		top: (height_header - height_header_cell) * 0.5+"px",
 		background: get_css_value("--color_menu_big"),
 	};
+	
 
 	// maybe this value can be compute with useRef to be optimum ?
 	let offset_dropdown = get_css_value("--height_header_cell");
