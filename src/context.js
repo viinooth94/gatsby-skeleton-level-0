@@ -8,8 +8,11 @@ export function HeaderContextProvider({children}) {
 	const [other_db_is, set_other_db_is] = useState(false);
 	const [lang_db_is, set_lang_db_is] = useState(false);
 	const [num_item_bd, set_num_item_bd] = useState(0);
-
-	let language = window.navigator.userLanguage || window.navigator.language;
+	const browser_is = typeof window !== "undefined";
+	let language = "fr"
+  if(browser_is) {
+		language = window.navigator.userLanguage || window.navigator.language;
+	}
 	if(language !== "fr") language = "en";
 	const [lang, set_lang] = useState(language);
 
