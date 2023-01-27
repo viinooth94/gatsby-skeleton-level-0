@@ -1,6 +1,9 @@
 :root {
+	/* test */
+	--box_default_design: 1;
+	/* font palette  */
   --font_current: Arial, Helvetica, sans-serif;
-
+	/* olor palette */
 	--color_0: black;
 	--color_1: white;
 
@@ -10,6 +13,7 @@
 	--color_5: red;
 	--color_6: purple;
 
+	/* the app setting */
 	--color_text: var(--color_6);
 
 	--color_global: var(--color_3);
@@ -23,10 +27,11 @@
 	--screen_min: 600px;
 
 	--height_header: 40px;
+	--size_header_cell: 30px;
 	--height_header_cell: 30px;
-	--width_header_cell: 30px;
+	--width_header_cell: 100px;
 
-	--box_default_design: 1;
+
 }
 
 body {

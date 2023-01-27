@@ -1,16 +1,19 @@
+// REACT
 import React from "react";
 import { useState } from "react";
+// APP
+import { Box, Hamburger } from "../gui";
 import { get_css_value}  from "../../utils/h";
 import { GoHome, MenuContent, Region } from "./menu_content";
 
-const header_style = {
+const header_box_style = {
 	margin: "0 auto",
   display: "flex",
   alignItems: "center",
 	justifyContent : "space-between",
 
-	width: "95%",
 	height: get_css_value("--height_header"),
+	width: "95%",
 }
 
 const style_box = {
@@ -28,26 +31,28 @@ const style_cell = {
 }
 
 
-const hamburger_style = {
-	width: get_css_value("--width_header_cell"),
-	height: get_css_value("--height_header_cell"),
+const hamburger_style_cell = {
+	width: get_css_value("--size_header_cell"),
+	height: get_css_value("--size_header_cell"),
 	background: get_css_value("--color_2"),
 	cursor: "pointer",
 }
 
-const home_style = {
-	height: get_css_value("--height_header_cell"),
-	// color: get_css_value("--color_0"),
-	fontFamily: get_css_value("--font_current"),
-	// border: "1px "+ get_css_value("--color_0") + " solid",
+const home_style_box = {
 	cursor: "pointer",
+}
+
+const home_style_cell = {
+	width: get_css_value("--width_header_cell"),
+	height: get_css_value("--height_header_cell"),
 }
 
 
 const region_style_box = {
 	// margin: "0 auto",
 	width: get_css_value("--width_header_cell"),
-	height: get_css_value("--height_header"),
+	// width: get_css_value("--size_header_cell"),
+	height: get_css_value("--size_header_cell"),
 	background: get_css_value("--color_header"),
 	// display:"flex",
 	// textAlign: "center",
@@ -56,6 +61,7 @@ const region_style_box = {
 
 const region_style_cell = {
 	textAlign: "center",
+	cursor: "pointer",
 }
 
 export function MenuSmall() {
@@ -66,11 +72,15 @@ export function MenuSmall() {
 	}
 
 	return <>
-		<div style={header_style}>
-			<GoHome style={home_style}/>
-			<div style={hamburger_style} onClick={mouse_click}></div>
-			<Region style_box={region_style_box} style_cell={region_style_cell}/>
-		</div>
+		<Box style={header_box_style}>
+			<GoHome style_box={home_style_box} style_cell={home_style_cell}/>
+			<Hamburger>
+				<div style={hamburger_style_cell} onClick={mouse_click}></div>
+			</Hamburger>
+			{/* the compute offset need to be optimize */}
+			<Region style_box={region_style_box} style_cell={region_style_cell} 
+							offset={get_css_value("--size_header_cell").slice(0,-2)/2+"px"}/>
+		</Box>
 		{is ? <MenuContent style_box={style_box} style_cell={style_cell} in_line={false}/> : null}
 	</>
 }
