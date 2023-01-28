@@ -71,7 +71,7 @@ export function MenuSmall() {
 
 	return <>
 		<Box style={header_box_style}>
-			<GoHome style_box={home_style_box} className_cell="home_cell" style_cell={home_style_cell}/>
+			<GoHome className_box={"home_box"} style_box={home_style_box} className_cell="home_cell" style_cell={home_style_cell}/>
 			<Hamburger>
 				<div style={hamburger_style_cell} onClick={mouse_click}></div>
 			</Hamburger>
