@@ -89,7 +89,7 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 
 	return <Box className={className_box} style={style_box}>
 		{/* Display link to home or not */}
-		{in_line !== false ? <GoHome style_box={box} className_cell="home_cell" style_cell={cell}/> : <></>}
+		{in_line !== false ? <GoHome className={"home_box"} style_box={box} className_cell="home_cell" style_cell={cell}/> : <></>}
 		{/* Content */}
 		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
 		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
