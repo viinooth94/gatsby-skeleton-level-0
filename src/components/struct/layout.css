@@ -4,6 +4,7 @@
 
 .header {
   background: var(--color_header);
+  height: var(--height_header);
   /* color: var(--color_text);
   border: solid 2px var(--color_0); */
 }
