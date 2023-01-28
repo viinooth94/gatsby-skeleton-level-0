@@ -43,7 +43,10 @@ export function NavCellBox({to, className_box, style_box, className_cell, style_
 }
 
 
-export function Dropdown({className_box, style_box, className_cell, style_cell, name, is, set_is, offset, children}) {
+export function Dropdown({name,
+													className_box, style_box, className_cell, style_cell, offset,  
+													is, set_is, all_is, set_all_is, 
+													children}) {
 	const style_display = {
 		display: "flex",
 		flexDirection: "column",
