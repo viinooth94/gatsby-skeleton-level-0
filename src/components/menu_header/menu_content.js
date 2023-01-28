@@ -2,7 +2,7 @@
 import React from "react";
 import { useContext } from "react";
 // APP
-import { HeaderContext } from "../../context";
+import { HeaderContext, DropdownContext } from "../../context";
 import { NavCellBox, Dropdown, Box} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import { MenuRegion } from "./menu_region";
@@ -10,8 +10,6 @@ import tree from "./../../../media/tree.json";
 import { get_css_value }  from "../../utils/h";
 
 import { StaticImage } from "gatsby-plugin-image"
-import home_logo from "./../../../media/images/home.png";
-
 
 export function GoHome({className_box, style_box, className_cell, style_cell}) {
 	let size = get_css_value("--height_header_cell");
@@ -21,8 +19,6 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 		size = size.slice(0,-2);
 	}
 	return <NavCellBox to="/" className_box={className_box} style_box={style_box} className_cell={className_cell} style_cell={style_cell}>
-		{/* Test the difference between this two loading image, see if it's better with Gatsby */}
-		{/* <img style={{maxWidth: get_css_value("--height_header_cell"), maxHeight: get_css_value("--height_header_cell")}} alt="Home" src={home_logo}/> */}
 		<div style={{maxWidth: size+"px", maxHeight:size+"px"}}>
 			<StaticImage 	src="./../../../media/images/home.png" alt="Home" 
 										placeHolder="blurred" layout="constrained"  />
@@ -31,21 +27,24 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 }
 
 export function Region({className_box, style_box, className_cell, style_cell, offset}) {
-	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
-	return <Dropdown 	style_box={style_box} style_cell={style_cell} 
+	const { lang, lang_db_is, set_lang_db_is, open_db, set_open_db  } = useContext(HeaderContext);
+	return <Dropdown 	name={tree[lang].lang[lang]} id="lang"
+										style_box={style_box} style_cell={style_cell} 
 										offset={offset}
-										name={tree[lang].lang[lang]} is={lang_db_is} set_is={set_lang_db_is}>
+										all_is={open_db} set_all_is={set_open_db}
+										is={lang_db_is} set_is={set_lang_db_is}>
 		<MenuRegion style_box={style_box} style_cell={style_cell} content={Object.values(tree[lang].lang)} />
 	</Dropdown>
 }
 
 
 function Other({className_box, style_box, className_cell, style_cell, offset}) {
-	const { other_db_is, set_other_db_is, open_db, open_bd_is } = useContext(HeaderContext);
+	const { other_db_is, set_other_db_is, open_db, set_open_db } = useContext(HeaderContext);
 
-	return <Dropdown 	style_box={style_box} style_cell={style_cell} 
+	return <Dropdown 	id="other" 
+										style_box={style_box} style_cell={style_cell} 
 										offset={offset} name={tree.fr.other} 
-										all_is={open_db} set_all_is={open_bd_is}
+										all_is={open_db} set_all_is={set_open_db}
 										is={other_db_is} set_is={set_other_db_is}>
 		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
 	</Dropdown>
