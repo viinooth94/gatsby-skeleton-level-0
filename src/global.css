@@ -1,6 +1,11 @@
 :root {
-	/* test */
-	--box_default_design: 1;
+	/* 
+	test 
+	0 is test false
+	1 is test true
+	*/
+	--box_default_design: 0;
+	
 	/* font palette  */
   --font_current: Arial, Helvetica, sans-serif;
 	/* olor palette */
