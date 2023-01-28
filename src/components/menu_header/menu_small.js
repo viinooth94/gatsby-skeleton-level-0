@@ -2,6 +2,8 @@
 import React from "react";
 import { useState } from "react";
 // APP
+import * as r from "./../../global.js";
+
 import { Box, Hamburger } from "../gui";
 import { get_css_value}  from "../../utils/h";
 import { GoHome, MenuContent, Region } from "./menu_content";
@@ -43,8 +45,10 @@ const home_style_box = {
 }
 
 const home_style_cell = {
-	width: get_css_value("--width_header_cell"),
-	height: get_css_value("--height_header_cell"),
+	width: r.width_header_cell+"px",
+	height: r.height_header_cell+"px",
+	// width: get_css_value("--width_header_cell"),
+	// height: get_css_value("--height_header_cell"),
 }
 
 
