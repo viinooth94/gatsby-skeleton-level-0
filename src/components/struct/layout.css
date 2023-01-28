@@ -14,12 +14,7 @@
 
 .home_box {
   height: var(--height_header_cell);
-  width: var(--width_header_cell);
-}
-
-.home_cell {
-  height: var(--height_header_cell);
-  width: var(--width_header_cell);
+  width: var(--height_header_cell);
 }
 
 .children {
