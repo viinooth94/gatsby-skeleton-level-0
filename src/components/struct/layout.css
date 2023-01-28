@@ -1,3 +1,8 @@
+/**
+* It's necessary to load a part of main style css in the layout for the first loading
+* because the style from react is load after the first rendering
+*/
+
 .global {
   color: var(--color_text);
 }
@@ -5,8 +10,11 @@
 .header {
   background: var(--color_header);
   height: var(--height_header);
-  /* color: var(--color_text);
-  border: solid 2px var(--color_0); */
+}
+
+.home_cell {
+  height: var(--height_header_cell);
+  width: var(--width_header_cell);
 }
 
 .children {
@@ -23,6 +31,7 @@ input {
   padding: 0.3em;
   margin: 0.3em;
 }
+
 input[type="text"] {
   width: 25em;
 }
