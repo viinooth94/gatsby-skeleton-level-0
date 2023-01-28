@@ -8,12 +8,30 @@ import { MenuMarkdown } from "./menu_markdown";
 import { MenuRegion } from "./menu_region";
 import tree from "./../../../media/tree.json";
 import { get_css_value }  from "../../utils/h";
+
+import { StaticImage } from "gatsby-plugin-image"
 import home_logo from "./../../../media/images/home.png";
 
 
 export function GoHome({className_box, style_box, className_cell, style_cell}) {
+	// let w = 100;
+	// let h = 100;
+	let size = get_css_value("--height_header_cell").slice(0,-2);
+	if(size === undefined) size = 100;
+	// let w = get_css_value("--height_header_cell").slice(0,-2);
+	// if(w === undefined) w = 100;
 	return <NavCellBox to="/" className_box={className_box} style_box={style_box} className_cell={className_cell} style_cell={style_cell}>
-		<img style={{maxWidth: get_css_value("--height_header_cell"), maxHeight: get_css_value("--height_header_cell")}} alt="Home" src={home_logo}/>
+		{/* Test the difference between this two loading image, see if it's better with Gatsby */}
+		{/* <img style={{maxWidth: get_css_value("--height_header_cell"), maxHeight: get_css_value("--height_header_cell")}} alt="Home" src={home_logo}/> */}
+			{/* <StaticImage src={{home_logo}} alt="Home"  */}
+			<div style={{maxWidth: size+"px", maxHeight:size+"px"}}>
+				<StaticImage src="./../../../media/images/home.png" alt="Home" 
+				placeHolder="blurred" layout="constrained" 
+									// placeHolder="blurred" layout="fixed" 
+									width={size} height={size}/>
+
+			</div>
+			
 	</NavCellBox>
 }
 
@@ -28,10 +46,12 @@ export function Region({className_box, style_box, className_cell, style_cell, of
 
 
 function Other({className_box, style_box, className_cell, style_cell, offset}) {
-	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
+	const { other_db_is, set_other_db_is, open_db, open_bd_is } = useContext(HeaderContext);
+
 	return <Dropdown 	style_box={style_box} style_cell={style_cell} 
-										offset={offset}
-										name={tree.fr.other} is={other_db_is} set_is={set_other_db_is}>
+										offset={offset} name={tree.fr.other} 
+										all_is={open_db} set_all_is={open_bd_is}
+										is={other_db_is} set_is={set_other_db_is}>
 		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
 	</Dropdown>
 }
