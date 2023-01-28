@@ -32,7 +32,7 @@ export function Footer() {
 	)
 
 	const year = new Date().getFullYear();
-	return <div  style={style_footer}>
+	return <div className="footer" style={style_footer}>
 		<div>{data.site.siteMetadata.title} {year}</div>
 		<Legal/>
 	</div>
