@@ -2,8 +2,6 @@
 import React from "react";
 import { useContext } from "react";
 // APP
-// import * as r from "./../../global.js";
-
 import { HeaderContext } from "../../context";
 import { NavCellBox, Dropdown, Box} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
@@ -48,8 +46,6 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 	let hhc = get_css_value("--height_header_cell");
 	let height_header = 0;
 	let height_header_cell = 0;
-	// let height_header = r.height_header;
-	// let height_header_cell = r.height_header_cell;
 	if(hh !== undefined && hhc !== undefined) {
 		height_header = hh.slice(0,-2);
 		height_header_cell = hhc.slice(0,-2);
@@ -69,7 +65,6 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		temp_box["background"] = get_css_value("--color_menu_small");
 		temp_box["top"] = 0;
 		offset_dropdown = get_css_value("--height_header");
-		//offset_dropdown = get_css_value("--height_header_cell");
 	}
 	
 	const temp_cell = {
@@ -94,7 +89,7 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 
 	return <Box className={className_box} style={style_box}>
 		{/* Display link to home or not */}
-		{in_line !== false ? <GoHome style_box={box} style_cell={cell}/> : <></>}
+		{in_line !== false ? <GoHome style_box={box} className_cell="home_cell" style_cell={cell}/> : <></>}
 		{/* Content */}
 		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
 		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
