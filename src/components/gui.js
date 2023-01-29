@@ -5,7 +5,7 @@ import {useState, useEffect} from "react";
 import { Link, navigate } from "gatsby";
 // APP
 import { get_css_value }  from "../utils/h";
-import { DropdownContext } from "../context"
+import { DropdownContextProvider } from "../context"
 
 export function Box(props) {
 	// don't use a strict aguality with === to be sure to catch the value.
@@ -49,26 +49,10 @@ export function NavCellBox({to, className_box, style_box, className_cell, style_
 //////////////////////
 // DROPDOWN
 ///////////////////////
-export function DropdownGroup({ children, defaultValue, onChange }) {
-	const [toggle_is, set_toggle_is] = useState("");
-	useEffect(() => {
-    set_toggle_is(defaultValue);
-  }, [defaultValue]);
-  function toggle_state(value) {
-    set_toggle_is(value);
-    onChange(value);
-  }
-	return (
-    <DropdownContext.Provider value={[toggle_is, toggle_state]}>
-      <div role="radiogroup">{children}</div>
-    </DropdownContext.Provider>
-  );
 
-}
 
 export function Dropdown({name, id,
 													className_box, style_box, className_cell, style_cell, offset,
-													all_is, set_all_is,
 													is, set_is,  
 													children}) {
 	const style_display = {
@@ -84,34 +68,15 @@ export function Dropdown({name, id,
  	// }
 	function mouse_click(event) {
 		event.preventDefault();
-		for (let [key, value] of Object.entries(all_is)) {
-			
-			if(key !== id) {
-				all_is[key] = false;
-			} else {
-				// console.log(id, key, value);
-				all_is[value] ? all_is[key] = false : all_is[key] = true; // context
-			}
-		}
-		set_all_is(all_is);
 		is ? set_is(false) : set_is(true); // context
  	}
 
 	// console.log("key",all_is.id, id)
 
-	function is() {
-		for (let [key, value] of Object.entries(all_is)) {
-			if(key === id) {
-				console.log("value", value);
-				return value;
-			}
-		}
-		return false;	
-	}
 
 	return <Box className={className_box} style={style_box}>
 		<div className={className_cell} style={style_cell} onClick={mouse_click}>{name}</div>
-		{is() ? 
+		{is ? 
 			<div style={style_display}>
 				{children}
 			</div> : <></>}

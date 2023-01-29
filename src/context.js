@@ -14,8 +14,6 @@ export function HeaderContextProvider({children}) {
 		other: false,
 	}
 
-	const[open_db, set_open_db] = useState(id);
-
 	const [other_db_is, set_other_db_is] = useState(false);
 	const [lang_db_is, set_lang_db_is] = useState(false);
 
@@ -29,7 +27,6 @@ export function HeaderContextProvider({children}) {
 	const [lang, set_lang] = useState(language);
 
 	const setting = {
-		open_db, set_open_db,
 		other_db_is, set_other_db_is,
 		lang_db_is, set_lang_db_is,
 
