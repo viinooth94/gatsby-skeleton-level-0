@@ -53,12 +53,9 @@ function Other({className_box, style_box, className_cell, style_cell, offset}) {
 
 
 function DropdownClassic(props) {
-	// two ways to display the dynamic content, 
-	// 	one by extand the menu on line, one with a dropdown menu 
-	// 	We can add another one with a horizontal submenu
 	return <>
 		<Other style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> 
-		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
+		
 		{props.in_line !== false ? <Region style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> : <></>}
 	</>
 }
@@ -100,12 +97,8 @@ function OtherRadio({className_box, style_box, className_cell, style_cell, offse
 // GROUP
 ///////////
 function DropdownRadioGroup(props) {
-	// two ways to display the dynamic content, 
-	// 	one by extand the menu on line, one with a dropdown menu 
-	// 	We can add another one with a horizontal submenu
 	return <>
 		<OtherRadio style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> 
-		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
 		{props.in_line !== false ? <RegionRadio style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> : <></>}
 	</>
 }
@@ -170,10 +163,14 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
 		{/* <DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} /> */}
 		{in_line === true ? 
-			<DropdownRadioGroup style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} /> : 
+			<DropdownRadioGroup style_box={box} style_cell={cell} offset={(height_header - height_header_cell) * 0.5+"px"} in_line={in_line} /> : 
 			<DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} />
 		}
-		
+		{/* two ways to display the dynamic content, 
+				one by extand the menu on line, one with a dropdown menu 
+				We can add another one with a horizontal submenu */}
+		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
+
 		{/* create a false account to give the opportunity to connect */}
 		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
 	</Box>

@@ -7,7 +7,6 @@ import { Link, navigate } from "gatsby";
 import { get_css_value }  from "../utils/h";
 // APP DROPDOWN
 import { DropdownRadioContext } from "../context";
-import './gui.css'
 
 export function Box(props) {
 	// don't use a strict aguality with === to be sure to catch the value.
@@ -99,23 +98,31 @@ export function DropdownRadio({	name,
 
 
 	const style_display = {
-	display: "flex",
-	flexDirection: "column",
-	// padding: offset + " 0",
+		display: "flex",
+		flexDirection: "column",
+		padding: offset + " 0",
+	}
+
+	const style_input = {
+		height:"0px",
+		width: "0px",
+		zindex:"1",
+		opacity: "0",
+		cursor: "pointer",
 	}
 
 
 	return <Box className={className_box} style={style_box}>
 			<label>
 				<input
-							className="dropdown_input"
+							style={style_input}
+							// className="dropdown_input"
 							id="radio_button"
 							value={value}
 							checked={checked}
 							type="radio"
 							onChange={({ target }) => {
 								// some code if necessary
-								console.log(target.value, checked);
 								onChange(target.value)}}
 						/>
 				<div className={className_cell} style={style_cell}>{name}</div>			

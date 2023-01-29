@@ -23,7 +23,6 @@ export function HeaderContextProvider({children}) {
   useEffect(() => {
     id.map((elem, key) => {
 			set_radio_is(prev_id => [...prev_id, {id: elem, index :key, active_is: false}])
-			// set_radio_is(prev_id => [...prev_id, {id: id[rank++], index :elem -1, active_is: false}])
     })
   }, [])
 
@@ -61,15 +60,14 @@ export function HeaderContextProvider({children}) {
 export const DropdownRadioContext = createContext();
 
 
-export function DropdownContextProvider({ children, defaultValue, onChange }) {
+export function DropdownContextProvider({ children, default_value}) {
 	const [toggle_is, set_toggle_is] = useState("");
 	useEffect(() => {
-    set_toggle_is(defaultValue);
-  }, [defaultValue]);
+    set_toggle_is(default_value);
+  }, [default_value]);
 
   function toggle_state(value) {
     set_toggle_is(value);
-    onChange(value);
   }
 
 	const setting = [toggle_is, toggle_state]
