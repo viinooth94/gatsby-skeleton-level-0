@@ -51,7 +51,7 @@ export function NavCellBox({to, className_box, style_box, className_cell, style_
 ///////////////////////
 
 
-export function Dropdown({name, id,
+export function Dropdown({name,
 													className_box, style_box, className_cell, style_cell, offset,
 													is, set_is,  
 													children}) {
@@ -59,20 +59,12 @@ export function Dropdown({name, id,
 		display: "flex",
 		flexDirection: "column",
 		padding: offset + " 0",
-		// padding: get_css_value("--height_header_cell") + " 0",
 	}
 
-	// function mouse_click(event) {
-	// 	event.preventDefault();
-	// 	is ? set_is(false) : set_is(true); // context
- 	// }
 	function mouse_click(event) {
 		event.preventDefault();
 		is ? set_is(false) : set_is(true); // context
  	}
-
-	// console.log("key",all_is.id, id)
-
 
 	return <Box className={className_box} style={style_box}>
 		<div className={className_cell} style={style_cell} onClick={mouse_click}>{name}</div>

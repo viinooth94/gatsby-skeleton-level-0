@@ -28,7 +28,7 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 
 export function Region({className_box, style_box, className_cell, style_cell, offset}) {
 	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
-	return <Dropdown 	name={tree[lang].lang[lang]} id="lang"
+	return <Dropdown 	name={tree[lang].lang[lang]}
 										style_box={style_box} style_cell={style_cell} 
 										offset={offset}
 										is={lang_db_is} set_is={set_lang_db_is}>
@@ -40,8 +40,7 @@ export function Region({className_box, style_box, className_cell, style_cell, of
 function Other({className_box, style_box, className_cell, style_cell, offset}) {
 	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
 
-	return <Dropdown 	id="other" 
-										style_box={style_box} style_cell={style_cell} 
+	return <Dropdown 	style_box={style_box} style_cell={style_cell} 
 										offset={offset} name={tree.fr.other} 
 										is={other_db_is} set_is={set_other_db_is}>
 		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
