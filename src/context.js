@@ -12,10 +12,18 @@ export function HeaderContextProvider({children}) {
 	const id = ["region","other"];
 	// create the dropdown radio list
 	const [radio_is, set_radio_is] = useState([])
-	let rank = 0
+	// let rank = 0
+  // useEffect(() => {
+  //   id.forEach(elem => {
+	// 		set_radio_is(prev_id => [...prev_id, {id: id[rank++], index :elem -1, active_is: false}])
+	// 		// set_radio_is(prev_id => [...prev_id, {id: id[rank++], index :elem -1, active_is: false}])
+  //   })
+  // }, [])
+	// let rank = 0
   useEffect(() => {
-    id.forEach(elem => {
-			set_radio_is(prev_id => [...prev_id, {id: id[rank++], index :elem -1, active_is: false}])
+    id.map((elem, key) => {
+			set_radio_is(prev_id => [...prev_id, {id: elem, index :key, active_is: false}])
+			// set_radio_is(prev_id => [...prev_id, {id: id[rank++], index :elem -1, active_is: false}])
     })
   }, [])
 
@@ -55,9 +63,9 @@ export const DropdownRadioContext = createContext();
 
 export function DropdownContextProvider({ children, defaultValue, onChange }) {
 	const [toggle_is, set_toggle_is] = useState("");
-	// useEffect(() => {
-  //   set_toggle_is(defaultValue);
-  // }, [defaultValue]);
+	useEffect(() => {
+    set_toggle_is(defaultValue);
+  }, [defaultValue]);
 
   function toggle_state(value) {
     set_toggle_is(value);

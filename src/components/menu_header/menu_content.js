@@ -64,13 +64,19 @@ function DropdownClassic(props) {
 }
 
 
+
+
+
 ///////////////////
 // DROPDOWN RADIO
 ///////////////////
+
+// ELEM
+////////
 function RegionRadio({className_box, style_box, className_cell, style_cell, offset}) {
 	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
 
-	return <DropdownRadio 	name={tree[lang].lang[lang]}
+	return <DropdownRadio name={tree[lang].lang[lang]}
 										style_box={style_box} style_cell={style_cell} 
 										offset={offset}
 										value={"region"}
@@ -83,7 +89,7 @@ function RegionRadio({className_box, style_box, className_cell, style_cell, offs
 function OtherRadio({className_box, style_box, className_cell, style_cell, offset}) {
 	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
 
-	return <DropdownRadio 	style_box={style_box} style_cell={style_cell} 
+	return <DropdownRadio style_box={style_box} style_cell={style_cell} 
 										offset={offset} name={tree.fr.other}
 										value={"other"}
 										is={other_db_is} set_is={set_other_db_is}>
@@ -91,7 +97,8 @@ function OtherRadio({className_box, style_box, className_cell, style_cell, offse
 	</DropdownRadio>
 }
 
-
+// GROUP
+///////////
 function DropdownRadioGroup(props) {
 	// two ways to display the dynamic content, 
 	// 	one by extand the menu on line, one with a dropdown menu 
@@ -162,7 +169,11 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
 		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
 		{/* <DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} /> */}
-		<DropdownRadioGroup style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} />
+		{in_line === true ? 
+			<DropdownRadioGroup style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} /> : 
+			<DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} />
+		}
+		
 		{/* create a false account to give the opportunity to connect */}
 		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
 	</Box>

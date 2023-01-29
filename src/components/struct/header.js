@@ -29,7 +29,7 @@ export function Header() {
 
 
 	return <HeaderContextProvider>
-		<DropdownContextProvider>
+		<DropdownContextProvider defaultValue="" onChange={value => console.log("onChange value: ", value)}>
 			<div className="header">
 				{size > 0 ? <MenuBig/> : <MenuSmall/>}
 			</div>
