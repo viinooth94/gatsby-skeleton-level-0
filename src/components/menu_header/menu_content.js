@@ -2,16 +2,14 @@
 import React from "react";
 import { useContext } from "react";
 // APP
-import { HeaderContext } from "../../context";
-import { NavCellBox, Dropdown, Box} from "../gui";
+import { HeaderContext, DropdownContext } from "../../context";
+import { NavCellBox, Dropdown, DropdownRadio, Box} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import { MenuRegion } from "./menu_region";
 import tree from "./../../../media/tree.json";
 import { get_css_value }  from "../../utils/h";
 
 import { StaticImage } from "gatsby-plugin-image"
-import home_logo from "./../../../media/images/home.png";
-
 
 export function GoHome({className_box, style_box, className_cell, style_cell}) {
 	let size = get_css_value("--height_header_cell");
@@ -21,8 +19,6 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 		size = size.slice(0,-2);
 	}
 	return <NavCellBox to="/" className_box={className_box} style_box={style_box} className_cell={className_cell} style_cell={style_cell}>
-		{/* Test the difference between this two loading image, see if it's better with Gatsby */}
-		{/* <img style={{maxWidth: get_css_value("--height_header_cell"), maxHeight: get_css_value("--height_header_cell")}} alt="Home" src={home_logo}/> */}
 		<div style={{maxWidth: size+"px", maxHeight:size+"px"}}>
 			<StaticImage 	src="./../../../media/images/home.png" alt="Home" 
 										placeHolder="blurred" layout="constrained"  />
@@ -30,25 +26,81 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 	</NavCellBox>
 }
 
+///////////////////
+// DROPDOWN CLASSIC
+///////////////////
 export function Region({className_box, style_box, className_cell, style_cell, offset}) {
 	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
-	return <Dropdown 	style_box={style_box} style_cell={style_cell} 
+
+	return <Dropdown 	name={tree[lang].lang[lang]}
+										style_box={style_box} style_cell={style_cell} 
 										offset={offset}
-										name={tree[lang].lang[lang]} is={lang_db_is} set_is={set_lang_db_is}>
+										is={lang_db_is} set_is={set_lang_db_is}>
 		<MenuRegion style_box={style_box} style_cell={style_cell} content={Object.values(tree[lang].lang)} />
 	</Dropdown>
 }
 
 
 function Other({className_box, style_box, className_cell, style_cell, offset}) {
-	const { other_db_is, set_other_db_is, open_db, open_bd_is } = useContext(HeaderContext);
+	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
 
 	return <Dropdown 	style_box={style_box} style_cell={style_cell} 
 										offset={offset} name={tree.fr.other} 
-										all_is={open_db} set_all_is={open_bd_is}
 										is={other_db_is} set_is={set_other_db_is}>
 		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
 	</Dropdown>
+}
+
+
+function DropdownClassic(props) {
+	return <>
+		<Other style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> 
+		
+		{props.in_line !== false ? <Region style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> : <></>}
+	</>
+}
+
+
+
+
+
+///////////////////
+// DROPDOWN RADIO
+///////////////////
+
+// ELEM
+////////
+function RegionRadio({className_box, style_box, className_cell, style_cell, offset}) {
+	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+
+	return <DropdownRadio name={tree[lang].lang[lang]}
+										style_box={style_box} style_cell={style_cell} 
+										offset={offset}
+										value={"region"}
+										is={lang_db_is} set_is={set_lang_db_is}>
+		<MenuRegion style_box={style_box} style_cell={style_cell} content={Object.values(tree[lang].lang)} />
+	</DropdownRadio>
+}
+
+
+function OtherRadio({className_box, style_box, className_cell, style_cell, offset}) {
+	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
+
+	return <DropdownRadio style_box={style_box} style_cell={style_cell} 
+										offset={offset} name={tree.fr.other}
+										value={"other"}
+										is={other_db_is} set_is={set_other_db_is}>
+		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
+	</DropdownRadio>
+}
+
+// GROUP
+///////////
+function DropdownRadioGroup(props) {
+	return <>
+		<OtherRadio style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> 
+		{props.in_line !== false ? <RegionRadio style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> : <></>}
+	</>
 }
 
 
@@ -109,13 +161,18 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
 		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
 		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
+		{/* <DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} /> */}
+		{in_line === true ? 
+			<DropdownRadioGroup style_box={box} style_cell={cell} offset={(height_header - height_header_cell) * 0.5+"px"} in_line={in_line} /> : 
+			<DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} />
+		}
 		{/* two ways to display the dynamic content, 
-			one by extand the menu on line, one with a dropdown menu 
-			We can add another one with a horizontal submenu */}
-		<Other style_box={box} style_cell={cell} offset={offset_dropdown}/> 
+				one by extand the menu on line, one with a dropdown menu 
+				We can add another one with a horizontal submenu */}
 		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
-		{in_line !== false ? <Region style_box={box} style_cell={cell} offset={offset_dropdown}/> : <></>}
+
 		{/* create a false account to give the opportunity to connect */}
 		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
 	</Box>
 }
+

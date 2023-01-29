@@ -21,5 +21,5 @@ const style_cell = {
 }
 
 export function MenuBig() {
-	return <MenuContent className_box="header" style_box={header_box_style} style_cell={style_cell}/>
+	return <MenuContent className_box="header" style_box={header_box_style} style_cell={style_cell} in_line={true}/>
 }
