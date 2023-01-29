@@ -3,7 +3,7 @@ import React from "react";
 import { useContext } from "react";
 // APP
 import { HeaderContext, DropdownContext } from "../../context";
-import { NavCellBox, Dropdown, Box} from "../gui";
+import { NavCellBox, Dropdown, DropdownRadio, Box} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import { MenuRegion } from "./menu_region";
 import tree from "./../../../media/tree.json";
@@ -26,8 +26,12 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 	</NavCellBox>
 }
 
+///////////////////
+// DROPDOWN CLASSIC
+///////////////////
 export function Region({className_box, style_box, className_cell, style_cell, offset}) {
 	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+
 	return <Dropdown 	name={tree[lang].lang[lang]}
 										style_box={style_box} style_cell={style_cell} 
 										offset={offset}
@@ -45,6 +49,58 @@ function Other({className_box, style_box, className_cell, style_cell, offset}) {
 										is={other_db_is} set_is={set_other_db_is}>
 		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
 	</Dropdown>
+}
+
+
+function DropdownClassic(props) {
+	// two ways to display the dynamic content, 
+	// 	one by extand the menu on line, one with a dropdown menu 
+	// 	We can add another one with a horizontal submenu
+	return <>
+		<Other style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> 
+		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
+		{props.in_line !== false ? <Region style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> : <></>}
+	</>
+}
+
+
+///////////////////
+// DROPDOWN RADIO
+///////////////////
+function RegionRadio({className_box, style_box, className_cell, style_cell, offset}) {
+	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+
+	return <DropdownRadio 	name={tree[lang].lang[lang]}
+										style_box={style_box} style_cell={style_cell} 
+										offset={offset}
+										value={"region"}
+										is={lang_db_is} set_is={set_lang_db_is}>
+		<MenuRegion style_box={style_box} style_cell={style_cell} content={Object.values(tree[lang].lang)} />
+	</DropdownRadio>
+}
+
+
+function OtherRadio({className_box, style_box, className_cell, style_cell, offset}) {
+	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
+
+	return <DropdownRadio 	style_box={style_box} style_cell={style_cell} 
+										offset={offset} name={tree.fr.other}
+										value={"other"}
+										is={other_db_is} set_is={set_other_db_is}>
+		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
+	</DropdownRadio>
+}
+
+
+function DropdownRadioGroup(props) {
+	// two ways to display the dynamic content, 
+	// 	one by extand the menu on line, one with a dropdown menu 
+	// 	We can add another one with a horizontal submenu
+	return <>
+		<OtherRadio style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> 
+		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
+		{props.in_line !== false ? <RegionRadio style_box={props.style_box} style_cell={props.style_cell} offset={props.offset}/> : <></>}
+	</>
 }
 
 
@@ -105,13 +161,10 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
 		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
 		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
-		{/* two ways to display the dynamic content, 
-			one by extand the menu on line, one with a dropdown menu 
-			We can add another one with a horizontal submenu */}
-		<Other style_box={box} style_cell={cell} offset={offset_dropdown}/> 
-		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
-		{in_line !== false ? <Region style_box={box} style_cell={cell} offset={offset_dropdown}/> : <></>}
+		{/* <DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} /> */}
+		<DropdownRadioGroup style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} />
 		{/* create a false account to give the opportunity to connect */}
 		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
 	</Box>
 }
+

@@ -24,13 +24,17 @@ export function Header() {
 			set_size(0);
 		}
 	})
-	
-	return <DropdownContextProvider>
-		<HeaderContextProvider>
+
+
+
+
+	return <HeaderContextProvider>
+		<DropdownContextProvider>
 			<div className="header">
 				{size > 0 ? <MenuBig/> : <MenuSmall/>}
 			</div>
-		</HeaderContextProvider>
-	</DropdownContextProvider>
+		</DropdownContextProvider>
+	</HeaderContextProvider>
+	
 }
 

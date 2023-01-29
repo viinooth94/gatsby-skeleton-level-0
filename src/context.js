@@ -9,15 +9,24 @@ import { useState, createContext, useEffect} from "react";
 export const HeaderContext = createContext(null);
 
 export function HeaderContextProvider({children}) {
-	const id = {
-		lang: false,
-		other: false,
-	}
+	const id = ["region","other"];
+	// create the dropdown radio list
+	const [radio_is, set_radio_is] = useState([])
+	let rank = 0
+  useEffect(() => {
+    id.forEach(elem => {
+			set_radio_is(prev_id => [...prev_id, {id: id[rank++], index :elem -1, active_is: false}])
+    })
+  }, [])
+
+
+	
 
 	const [other_db_is, set_other_db_is] = useState(false);
 	const [lang_db_is, set_lang_db_is] = useState(false);
 
 	const [num_item_bd, set_num_item_bd] = useState(0);
+	// lang
 	const browser_is = typeof window !== "undefined";
 	let language = "fr"
   if(browser_is) {
@@ -27,6 +36,8 @@ export function HeaderContextProvider({children}) {
 	const [lang, set_lang] = useState(language);
 
 	const setting = {
+		radio_is, set_radio_is,
+
 		other_db_is, set_other_db_is,
 		lang_db_is, set_lang_db_is,
 
@@ -39,14 +50,14 @@ export function HeaderContextProvider({children}) {
 // DROPDOWN CONTEXT
 ////////////////////
 
-export const DropdownContext = createContext();
+export const DropdownRadioContext = createContext();
 
 
 export function DropdownContextProvider({ children, defaultValue, onChange }) {
 	const [toggle_is, set_toggle_is] = useState("");
-	useEffect(() => {
-    set_toggle_is(defaultValue);
-  }, [defaultValue]);
+	// useEffect(() => {
+  //   set_toggle_is(defaultValue);
+  // }, [defaultValue]);
 
   function toggle_state(value) {
     set_toggle_is(value);
@@ -56,8 +67,8 @@ export function DropdownContextProvider({ children, defaultValue, onChange }) {
 	const setting = [toggle_is, toggle_state]
 
 	return (
-    <DropdownContext.Provider value={setting}>
+    <DropdownRadioContext.Provider value={setting}>
       <div role="radiogroup">{children}</div>
-    </DropdownContext.Provider>
+    </DropdownRadioContext.Provider>
   );
 }
