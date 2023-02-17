@@ -7,7 +7,9 @@
 	--box_default_design: 0;
 	
 	/* font palette  */
-  --font_current: Arial, Helvetica, sans-serif;
+	/* --font_current: serif; */
+  --font_current: "aglet-mono", "oso-serif-variable", Arial, Helvetica, sans-serif;
+	/* --font_current: Arial, Helvetica, sans-serif; */
 	/* olor palette */
 	--color_0: black;
 	--color_1: white;

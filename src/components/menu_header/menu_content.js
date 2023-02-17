@@ -2,7 +2,7 @@
 import React from "react";
 import { useContext } from "react";
 // APP
-import { HeaderContext, DropdownContext } from "../../context";
+import { HeaderContext } from "../../context";
 import { NavCellBox, Dropdown, DropdownRadio, Box} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import { MenuRegion } from "./menu_region";

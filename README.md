@@ -33,6 +33,14 @@
 
     Edit `src/pages/index.js` to see your site update in real-time!
 
+## Font Abode typekit
+
+create a project on https://fonts.adobe.com/
+
+and copy and past the the id on your file `.env` and save it at the root of your project.
+
+after add the the id too in your deployment server in your secret id box.
+
 
 
 

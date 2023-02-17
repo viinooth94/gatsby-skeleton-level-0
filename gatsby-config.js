@@ -9,6 +9,15 @@ module.exports = {
     author: `stanislas Marçais`,
   },
   plugins: [
+    // FONT
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
     // image part
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

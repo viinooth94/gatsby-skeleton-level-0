@@ -1,6 +1,6 @@
 // REACT
 import React from "react";
-import {useState, useEffect, useContext} from "react";
+import {useContext} from "react";
 // GATSBY
 import { Link, navigate } from "gatsby";
 // APP
@@ -10,7 +10,7 @@ import { DropdownRadioContext } from "../context";
 
 export function Box(props) {
 	// don't use a strict aguality with === to be sure to catch the value.
-	if(get_css_value("--box_default_design") == 1) {
+	if(get_css_value("--box_default_design") === 1) {
 		const style = Object.assign({}, props.style)
 		style["border"] = "1px solid black";
 		return <div className={props.className} style={style} onClick={props.onClick}>{props.children}</div>

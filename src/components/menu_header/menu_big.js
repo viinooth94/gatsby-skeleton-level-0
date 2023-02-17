@@ -16,7 +16,7 @@ const header_box_style = {
 const style_cell = {
 	width: get_css_value("--width_header_cell"),
 	height: get_css_value("--height_header_cell"),
-	fontFamily:"sans-serif",
+	// fontFamily:"sans-serif",
 	cursor: "pointer",
 }
 
