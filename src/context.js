@@ -9,8 +9,6 @@ import { useState, createContext, useEffect} from "react";
 export const HeaderContext = createContext(null);
 
 export function HeaderContextProvider({children}) {
-	const id = ["region","other"];
-
 	const [other_db_is, set_other_db_is] = useState(false);
 	const [lang_db_is, set_lang_db_is] = useState(false);
 

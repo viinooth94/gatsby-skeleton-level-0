@@ -1,6 +1,5 @@
 // REACT
 import React from "react";
-import { useContext } from "react";
 // APP
 import { Box } from "./../gui"
 

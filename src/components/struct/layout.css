@@ -2,12 +2,16 @@
 * It's necessary to load a part of main style css in the layout for the first loading
 * because the style from react is load after the first rendering
 */
+body {
+  font-family: var(--font_current);
+}
 
 .global {
   color: var(--color_text);
 }
 
 .header {
+  font-family: var(--font_current);
   background: var(--color_header);
   height: var(--height_header);
 }
@@ -19,10 +23,12 @@
 
 .children {
 	padding : 1em;
+  font-family: var(--font_current);
 }
 
 .footer {
   background: var(--color_footer);
+  font-family: var(--font_current);
 }
 
 input {

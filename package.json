@@ -18,6 +18,7 @@
     "gatsby": "^5.4.2",
     "gatsby-plugin-image": "^3.4.0",
     "gatsby-plugin-sharp": "^5.4.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-images": "^7.4.0",
     "gatsby-source-filesystem": "^5.4.0",
     "gatsby-transformer-remark": "^6.4.0",

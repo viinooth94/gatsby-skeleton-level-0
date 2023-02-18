@@ -8,8 +8,8 @@ import { GoHome, MenuContent, Region } from "./menu_content";
 
 const header_box_style = {
 	margin: "0 auto",
-  display: "flex",
-  alignItems: "center",
+	display: "flex",
+	alignItems: "center",
 	// justifyContent : "center",
 	// justifyContent : "normal",
 	// justifyContent : "stretch",
@@ -31,7 +31,7 @@ const style_box_deploy_menu = {
 const style_cell_deploy_menu = {
 	width: "0px",
 	height: get_css_value("--height_header"),
-	fontFamily: get_css_value("--font_current"),
+	// fontFamily: get_css_value("--font_current"),
 	// border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
 }
@@ -62,8 +62,8 @@ const home_style_cell = {
 
 const region_style_cell = {
 	position: "relative",
-  top: "50%",
-  transform: "translate(25%, -50%)",
+	top: "50%",
+	transform: "translate(25%, -50%)",
 	cursor: "pointer",
 }
 
