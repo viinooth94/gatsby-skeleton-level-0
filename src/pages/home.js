@@ -1,5 +1,8 @@
+// REACT
 import React from "react";
+// APP
 import { LayoutHome } from "../components/struct/layout.js";
+import { RenderPage, RenderHead } from "../components/render/render_page";
 
 export default function Home() {
   return <LayoutHome>
@@ -8,5 +11,6 @@ export default function Home() {
 };
 
 export const Head = () => <title>Home</title>
+
 
 

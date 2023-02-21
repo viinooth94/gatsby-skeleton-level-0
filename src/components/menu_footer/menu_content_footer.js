@@ -23,5 +23,6 @@ export function Legal() {
 		}
     `
 	)
+	console.log("data legal", data);
 	return <NavCell to="/legal" style={style_cell}>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</NavCell>
 }

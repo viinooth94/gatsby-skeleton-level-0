@@ -2,7 +2,7 @@
 import React from "react";
 import { useContext } from "react";
 // APP
-import { HeaderContext } from "../../context";
+import { HeaderContext, RegionContext } from "../../context";
 import { NavCellBox, Dropdown, DropdownRadio, Box} from "../gui";
 import { MenuMarkdown } from "./menu_markdown";
 import { MenuRegion } from "./menu_region";
@@ -30,7 +30,8 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 // DROPDOWN CLASSIC
 ///////////////////
 export function Region({className_box, style_box, className_cell, style_cell, offset}) {
-	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+	const { lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+	const { lang } = useContext(RegionContext);
 
 	return <Dropdown 	name={tree[lang].lang[lang]}
 										style_box={style_box} style_cell={style_cell} 
@@ -71,7 +72,8 @@ function DropdownClassic(props) {
 // ELEM
 ////////
 function RegionRadio({className_box, style_box, className_cell, style_cell, offset}) {
-	const { lang, lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+	const { lang_db_is, set_lang_db_is } = useContext(HeaderContext);
+	const { lang } = useContext(RegionContext);
 
 	return <DropdownRadio name={tree[lang].lang[lang]}
 										style_box={style_box} style_cell={style_cell} 

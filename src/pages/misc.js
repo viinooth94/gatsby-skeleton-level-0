@@ -1,6 +1,8 @@
+// REACT
 import React from "react";
-
-import { LayoutMain } from "../components/h.js"
+// APP
+import { LayoutMain } from "../components/h.js";
+import { RenderPage, RenderHead } from "../components/render/render_page";
 
 /*
 it's necessary to export the Components Page as default

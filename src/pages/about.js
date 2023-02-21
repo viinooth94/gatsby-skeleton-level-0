@@ -1,19 +1,22 @@
-
+// REACT
 import React from "react";
+import { useContext, useState } from "react";
+// GATSBY
 import { graphql } from "gatsby";
-
-import { LayoutMain, ContentMarkdownHtml } from "../components/h.js"
+// APP
+import { LayoutMain} from "../components/h.js"
+import { RenderPage } from "../components/render/render_page"
 
 /*
-it's necessary to export the Components Page as default
-If it's not do, Gatby Router don't find the page and return an error
+* it's necessary to export the Components Page as default
+* If it's not do, Gatby Router don't find the page and return an error
 */
 export default function PageAbout ({data}) {
-  return<LayoutMain>
-    <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
-    <ContentMarkdownHtml html={data.allMarkdownRemark.edges[0].node.html} />
-  </LayoutMain>;
+  return <LayoutMain>
+    <RenderPage data={data}/>
+  </LayoutMain>
 };
+
 
 
 export const Head = ({data}) => <title>{data.allMarkdownRemark.edges[0].node.frontmatter.categorie}</title>
@@ -28,6 +31,7 @@ export const myQuery = graphql`
             categorie
             title
             menu
+            lang
           }
           html
         }
