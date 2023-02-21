@@ -1,6 +1,10 @@
+// REACT
 import React from "react";
+// GATSBY
 import { graphql } from "gatsby";
-import { ContentMarkdownHtml, LayoutMain, Form } from "../components/h.js"
+// APP
+import { LayoutMain } from "../components/h.js"
+import { RenderPageAccount} from "../components/render/render_page_account"
 
 /*
 it's necessary to export the Components Page as default
@@ -15,7 +19,7 @@ export default function Account({data}) {
     padding:"0.5em",
   }
 
-  const style_cell_field = {
+  const style_field = {
     width: "30em",
     background: "cyan"
   }
@@ -25,21 +29,16 @@ export default function Account({data}) {
     flexDirection: "column",
   }
 
-  const node = data.allMarkdownRemark.edges[0].node;
-
   return <LayoutMain>
-    <h2>{node.frontmatter.title}</h2>
-    <ContentMarkdownHtml html={node.html} />
-    <Form style={style_form} id_name="contact">
-      <Form.Input style_cell={style_cell_field} type="email" name="email" placeHolder={node.frontmatter.mail}/>
-      <Form.Input style_cell={style_cell_field} type="password" name="password" placeHolder={node.frontmatter.password}/>
-      <Form.Submit style_box={style_box} style_cell={style_cell} type="submit">{node.frontmatter.send}</Form.Submit>
-    </Form>
+    <RenderPageAccount data={data}
+                        style_box={style_box}
+                        style_cell={style_cell}
+                        style_form={style_form}
+                        style_field={style_field}/>
   </LayoutMain>;
 };
 
 export const Head = ({data}) => <title>{data.allMarkdownRemark.edges[0].node.frontmatter.categorie}</title>
-
 
 export const myQuery = graphql`
   query {
@@ -53,6 +52,7 @@ export const myQuery = graphql`
             mail
             send
             password
+            lang
           }
           html
         }

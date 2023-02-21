@@ -36,8 +36,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown content`,
-        path: `${__dirname}/media/markdown_content`,
+        name: `content fr`,
+        path: `${__dirname}/media/markdown_content/fr`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content en`,
+        path: `${__dirname}/media/markdown_content/en`,
       },
     },
     {

@@ -5,8 +5,9 @@ categorie : "legal"
 lang: "fr"
 ---
 
-## Mentions Légales
+## Informations
 
 Entreprise : nom et adresse
+
 Hébergement : Netlify et Github
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { useState, useEffect} from "react";
 // APP
-import { get_css_value, use_width_higher_than }  from "../../utils/h";
+import { get_css_value, width_higher_than }  from "../../utils/h";
 import { MenuBig, MenuSmall } from "./../h";
 import { HeaderContextProvider, DropdownContextProvider } from "./../../context"
 
@@ -14,7 +14,7 @@ export function Header() {
 	if(buf !== undefined) {
 		let min = buf.slice(0,-2);
 		// assume min now is a number
-		value_is = use_width_higher_than(min);
+		value_is = width_higher_than(min);
 	}
 	
 	useEffect(() => {
