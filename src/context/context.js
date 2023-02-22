@@ -19,8 +19,6 @@ const init_region_context = {
 
 export const RegionContext = createContext(init_region_context);
 
-// // REGION CONTEXT
-// ////////////////////
 export function RegionContextProvider({children}) {
 	// lang
 	const browser_is = typeof window !== "undefined";
@@ -75,7 +73,7 @@ export function DropdownContextProvider({ children, default_value}) {
     set_toggle_is(value);
   }
 
-	const setting = [toggle_is, toggle_state]
+	const setting = [toggle_is, toggle_state];
 
 	return (
     <DropdownRadioContext.Provider value={setting}>

@@ -17,7 +17,7 @@ function Layout({children}) {
 export function LayoutHome({children}) {
 	return <Layout>
 		<Header/>
-		<div className="children" style={{background: get_css_value("--color_3")}}>{children}</div>
+		<div className="children" style={{background: get_css_value("layout_home_bg")}}>{children}</div>
 		<Footer/>
 	</Layout>
 }
@@ -25,7 +25,7 @@ export function LayoutHome({children}) {
 export function LayoutMain({children}) {
 	return <Layout>
 		<Header/>
-		<div className="children" style={{background: get_css_value("--color_2")}}>{children}</div>
+		<div className="children" style={{background: get_css_value("--layout_main_bg")}}>{children}</div>
 		<Footer/>
 	</Layout>
 }
@@ -33,7 +33,7 @@ export function LayoutMain({children}) {
 export function LayoutMarkdown({children}) {
 	return  <Layout>
 		<Header/>
-		<div className="children" style={{background: get_css_value("--color_4")}}>{children}</div>
+		<div className="children" style={{background: get_css_value("--layout_log_bg")}}>{children}</div>
 		<Footer/>
 	</Layout>
 }
@@ -41,7 +41,7 @@ export function LayoutMarkdown({children}) {
 export function Layout404({children}) {
 	return  <Layout>
 		<Header/>
-		<div className="children" style={{background: get_css_value("--color_0"), color:get_css_value("--color_1")}}>{children}</div>
+		<div className="children" style={{background: get_css_value("--layout_404_bg"), color:get_css_value("--color_text_light")}}>{children}</div>
 		<Footer/>
 	</Layout>
 }

@@ -4,7 +4,8 @@ import React from "react";
 import { graphql } from "gatsby";
 // APP
 import { LayoutMain } from "../components/h.js"
-import { RenderPageAccount} from "../components/render/render_page_account"
+import { RenderPageAccount} from "../components/render/render_page_account";
+import { get_css_value }  from "../utils/h";
 
 /*
 it's necessary to export the Components Page as default
@@ -13,6 +14,7 @@ If it's not do, Gatby Router don't find the page and return an error
 export default function Account({data}) {
   const style_cell = {
     width: "100px",
+    background: get_css_value("--color_button")
   }
 
   const style_box = {
@@ -21,7 +23,7 @@ export default function Account({data}) {
 
   const style_field = {
     width: "30em",
-    background: "cyan"
+    background: get_css_value("--color_bg_form")
   }
 
   const style_form = {

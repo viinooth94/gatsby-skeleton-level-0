@@ -93,7 +93,7 @@ export function DropdownRadio({	name,
 																value, 
 																children}) {
 	// context
-	const [toggle_is, onChange] = useContext(DropdownRadioContext);
+	const [toggle_is, set_toggle_is] = useContext(DropdownRadioContext);
 	const checked = value === toggle_is;
 
 
@@ -111,6 +111,12 @@ export function DropdownRadio({	name,
 		cursor: "pointer",
 	}
 
+	// close the dropdown after use it
+	function close(event) {
+		event.preventDefault();
+		set_toggle_is("");
+	}
+
 
 	return <Box className={className_box} style={style_box}>
 			<label>
@@ -123,11 +129,11 @@ export function DropdownRadio({	name,
 							type="radio"
 							onChange={({ target }) => {
 								// some code if necessary
-								onChange(target.value)}}
+								set_toggle_is(target.value)}}
 						/>
 				<div className={className_cell} style={style_cell}>{name}</div>			
 			</label>	
-			{toggle_is === value ? <div style={style_display}>{children}</div> : <></>}
+			{toggle_is === value ? <div onClick={close} style={style_display}>{children}</div> : <></>}
 	</Box>
 }
 
