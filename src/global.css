@@ -20,8 +20,9 @@
 	--color_5: red;
 	--color_6: purple;
 
-	/* the app setting */
-	--color_text: var(--color_6);
+	/* the app color */
+	--color_text_dark: var(--color_6);
+	--color_text_light: var(--color_3);
 
 	--color_global: var(--color_3);
 
@@ -31,6 +32,16 @@
 
 	--color_footer: var(--color_4);
 
+	--color_bg_form: var(--color_3);
+
+	--color_button: var(--color_4);
+
+	--layout_home_bg: var(--color_3);
+	--layout_main_bg: var(--color_2);
+	--layout_log_bg: var(--color_4);
+	--layout_404_bg: var(--color_0);
+
+	/* the app misc */
 	--screen_min: 600px;
 
 	--height_header: 40px;
@@ -39,11 +50,13 @@
 	--width_header_cell: 100px;
 
 
+
+
 }
 
 body {
   font-family: var(--font_current);
   background: var(--color_global);
-	color: var(--color_text);
+	color: var(--color_text_dark);
   margin: 0px;
 }

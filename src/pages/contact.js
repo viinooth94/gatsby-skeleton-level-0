@@ -5,7 +5,8 @@ import { graphql } from "gatsby";
 //the file h.js is like the header in C and C++ language. That's work like an index, catalogue...
 import { LayoutMain } from "../components/h.js";
 // import { RegionContext } from "./../context";
-import { RenderPageContact } from "../components/render/render_page_contact"
+import { RenderPageContact } from "../components/render/render_page_contact";
+import { get_css_value }  from "../utils/h";
 
 
 /*
@@ -15,6 +16,7 @@ If it's not do, Gatsby Router don't find the page and return an error
 export default function PageContact ({data}) {
   const style_cell = {
     width: "100px",
+    background: get_css_value("--color_button")
   }
 
   const style_box = {
@@ -23,7 +25,7 @@ export default function PageContact ({data}) {
 
   const style_form = {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column"
   }
 
   // const node = useNode(data);

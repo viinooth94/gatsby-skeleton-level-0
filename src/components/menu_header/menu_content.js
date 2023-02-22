@@ -37,7 +37,8 @@ export function Region({className_box, style_box, className_cell, style_cell, of
 										style_box={style_box} style_cell={style_cell} 
 										offset={offset}
 										is={lang_db_is} set_is={set_lang_db_is}>
-		<MenuRegion style_box={style_box} style_cell={style_cell} content={Object.values(tree[lang].lang)} />
+		<MenuRegion style_box={style_box} style_cell={style_cell} 
+								values={Object.values(tree[lang].lang)} keys={Object.keys(tree[lang].lang)} />
 	</Dropdown>
 }
 

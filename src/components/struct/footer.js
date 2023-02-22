@@ -10,7 +10,7 @@ const style_footer = {
 	justifyContent : "center",
 	width: "100%",
 	height: "50px",
-	background: get_css_value("--color_4"),
+	background: get_css_value("--color_footer"),
 }
 
 

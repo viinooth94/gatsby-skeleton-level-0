@@ -46,7 +46,7 @@ const style_box_elem = {
 const hamburger_style_cell = {
 	width: get_css_value("--size_header_cell"),
 	height: get_css_value("--size_header_cell"),
-	background: get_css_value("--color_2"),
+	background: get_css_value("--layout_main_bg"),
 	cursor: "pointer",
 	transform: "translate(120%, 0)",
 }
