@@ -73,14 +73,11 @@ function DropdownClassic(props) {
 // REGION
 ///////////
 function RegionRadio({className_box, style_box, className_cell, style_cell, offset}) {
-	const { lang_db_is, set_lang_db_is } = useContext(HeaderContext);
-	const { lang, set_lang } = useContext(RegionContext);
+	const { lang } = useContext(RegionContext);
 
-	return <DropdownRadio name={tree[lang].lang[lang]}
-										style_box={style_box} style_cell={style_cell} 
-										offset={offset}
-										value={"region"}
-										is={lang_db_is} set_is={set_lang_db_is}>
+	return <DropdownRadio style_box={style_box} style_cell={style_cell} 
+												offset={offset} name={tree[lang].lang[lang]}
+												value={"region"}>
 		<MenuRegion style_box={style_box} style_cell={style_cell} 
 								values={Object.values(tree[lang].lang)}
 								keys={Object.keys(tree[lang].lang)} />
@@ -90,13 +87,11 @@ function RegionRadio({className_box, style_box, className_cell, style_cell, offs
 // OTHER
 //////////
 function OtherRadio({className_box, style_box, className_cell, style_cell, offset}) {
-	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
 	const { lang } = useContext(RegionContext);
 
 	return <DropdownRadio style_box={style_box} style_cell={style_cell} 
-										offset={offset} name={tree[lang].other}
-										value={"other"}
-										is={other_db_is} set_is={set_other_db_is}>
+												offset={offset} name={tree[lang].other}
+												value={"other"}>
 		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
 	</DropdownRadio>
 }
