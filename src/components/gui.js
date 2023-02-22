@@ -6,7 +6,7 @@ import { Link, navigate } from "gatsby";
 // APP
 import { get_css_value }  from "../utils/h";
 // APP DROPDOWN
-import { DropdownRadioContext } from "../context";
+import { DropdownRadioContext } from "../context/context";
 
 export function Box(props) {
 	// don't use a strict aguality with === to be sure to catch the value.

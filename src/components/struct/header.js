@@ -4,7 +4,7 @@ import { useState, useEffect} from "react";
 // APP
 import { get_css_value, width_higher_than }  from "../../utils/h";
 import { MenuBig, MenuSmall } from "./../h";
-import { HeaderContextProvider, DropdownContextProvider } from "./../../context"
+import { HeaderContextProvider, DropdownContextProvider } from "../../context/context"
 
 export function Header() {
 	const [size, set_size] = useState(1);

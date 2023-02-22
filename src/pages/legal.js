@@ -4,22 +4,15 @@ import React from "react";
 import { graphql } from "gatsby";
 // APP
 import { LayoutMain } from "../components/struct/layout.js";
-import { RenderPage, RenderHead } from "../components/render/render_page";
+import { RenderPage } from "../components/render/render_page";
 
 /*
 it's necessary to export the Components Page as default
 If it's not do, Gatby Router don't find the page and return an error
 */
-// function ContentMarkdownHtml({html}) {
-//   return <div dangerouslySetInnerHTML={{ __html: html }} />
-// }
-
-
 export default function Legal ({data}) {
   return<LayoutMain>
     <RenderPage data={data}/>
-    {/* <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
-		<ContentMarkdownHtml html={data.allMarkdownRemark.edges[0].node.html} /> */}
   </LayoutMain>;
 };
 

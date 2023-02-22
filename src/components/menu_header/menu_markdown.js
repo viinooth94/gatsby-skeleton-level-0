@@ -2,7 +2,7 @@
 import React from "react";
 import { useContext } from "react";
 // APP
-import { HeaderContext } from "../../context";
+import { HeaderContext } from "../../context/context";
 import { NavCell, Box } from "../gui";
 import { useStaticQuery, graphql } from "gatsby";
 

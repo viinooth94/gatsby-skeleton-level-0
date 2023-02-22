@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { RegionContext } from "./../context";
+import { RegionContext } from "../context/context";
 
 export function useNode(data) {
   const { lang } = useContext(RegionContext);

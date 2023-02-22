@@ -2,7 +2,7 @@
 import React from "react";
 import { useContext, useState } from "react";
 // APP
-import { RegionContext } from "./../../context";
+import { RegionContext } from "./../../context/context";
 import { ContentMarkdownHtml } from "../h.js"
 
 export function RenderPage({data}) {

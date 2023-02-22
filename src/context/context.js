@@ -1,7 +1,7 @@
 /**
  * 
  * Context
- * version 0.3.0
+ * version 0.3.1
  * 2023-2023
  * 
  * */
@@ -12,8 +12,15 @@ import { useState, createContext, useEffect} from "react";
 
 // REGION CONTEXT
 ////////////////////
-export const RegionContext = createContext(null);
-//  let init = false;
+const init_region_context = {
+  lang: "en",
+  set_lang: function() {}
+};
+
+export const RegionContext = createContext(init_region_context);
+
+// // REGION CONTEXT
+// ////////////////////
 export function RegionContextProvider({children}) {
 	// lang
 	const browser_is = typeof window !== "undefined";
@@ -25,10 +32,7 @@ export function RegionContextProvider({children}) {
 		language = "en";
 	}
 	const [lang, set_lang] = useState(language);
-	// console.log("after region", lang, init);
-	// const [lang, set_lang] = useState("en");
-	
-	
+
 
 	const setting = {
 		lang, set_lang
