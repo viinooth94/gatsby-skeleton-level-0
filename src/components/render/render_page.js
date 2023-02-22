@@ -10,7 +10,7 @@ export function RenderPage({data}) {
   let buf_title = data.allMarkdownRemark.edges[0].node.frontmatter.title;
   let buf_html = data.allMarkdownRemark.edges[0].node.html;
 
-  // useEffect or not useEffect in this case ?????
+  // useEffect or not useEffect for this loop ?????
   for(let i = 0 ; i < data.allMarkdownRemark.edges.length ; i++) {
     if(lang === data.allMarkdownRemark.edges[i].node.frontmatter.lang) {
       buf_title = data.allMarkdownRemark.edges[i].node.frontmatter.title;

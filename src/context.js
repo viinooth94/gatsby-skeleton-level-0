@@ -1,7 +1,7 @@
 /**
  * 
  * Context
- * version 0.2.0
+ * version 0.3.0
  * 2023-2023
  * 
  * */
@@ -13,7 +13,7 @@ import { useState, createContext, useEffect} from "react";
 // REGION CONTEXT
 ////////////////////
 export const RegionContext = createContext(null);
-
+//  let init = false;
 export function RegionContextProvider({children}) {
 	// lang
 	const browser_is = typeof window !== "undefined";
@@ -21,9 +21,14 @@ export function RegionContextProvider({children}) {
   if(browser_is) {
 		language = window.navigator.userLanguage || window.navigator.language;
 	}
-	if(language !== "fr") language = "en";
-	// const [lang, set_lang] = useState(language);
-	const [lang, set_lang] = useState("en");
+	if(language !== "fr") {
+		language = "en";
+	}
+	const [lang, set_lang] = useState(language);
+	// console.log("after region", lang, init);
+	// const [lang, set_lang] = useState("en");
+	
+	
 
 	const setting = {
 		lang, set_lang
@@ -34,19 +39,16 @@ export function RegionContextProvider({children}) {
 
 // HEADER CONTEXT
 ////////////////////
-
 export const HeaderContext = createContext(null);
 
 export function HeaderContextProvider({children}) {
 	const [other_db_is, set_other_db_is] = useState(false);
 	const [lang_db_is, set_lang_db_is] = useState(false);
-
 	const [num_item_bd, set_num_item_bd] = useState(0);
 
 	const setting = {
 		other_db_is, set_other_db_is,
 		lang_db_is, set_lang_db_is,
-
 		num_item_bd, set_num_item_bd,
 	}
 	return <HeaderContext.Provider value={setting}>{children}</ HeaderContext.Provider>
@@ -57,7 +59,6 @@ export function HeaderContextProvider({children}) {
 
 // DROPDOWN CONTEXT
 ///////////////////
-
 export const DropdownRadioContext = createContext();
 
 export function DropdownContextProvider({ children, default_value}) {

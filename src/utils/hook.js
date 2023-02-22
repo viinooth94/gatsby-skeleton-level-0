@@ -6,7 +6,6 @@ export function useNode(data) {
   let buf_node = data.allMarkdownRemark.edges[0].node;
 
   for(let i = 0 ; i < data.allMarkdownRemark.edges.length ; i++) {
-    console.log(lang, data.allMarkdownRemark.edges.length, data.allMarkdownRemark.edges[i].node.frontmatter.lang);
     if(lang === data.allMarkdownRemark.edges[i].node.frontmatter.lang) {
       buf_node = data.allMarkdownRemark.edges[i].node;
     }

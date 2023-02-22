@@ -21,7 +21,7 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 	return <NavCellBox to="/" className_box={className_box} style_box={style_box} className_cell={className_cell} style_cell={style_cell}>
 		<div style={{maxWidth: size+"px", maxHeight:size+"px"}}>
 			<StaticImage 	src="./../../../media/images/home.png" alt="Home" 
-										placeHolder="blurred" layout="constrained"  />
+										placeHolder="blurred" layout="constrained" />
 		</div>
 	</NavCellBox>
 }
@@ -69,27 +69,31 @@ function DropdownClassic(props) {
 // DROPDOWN RADIO
 ///////////////////
 
-// ELEM
-////////
+// REGION
+///////////
 function RegionRadio({className_box, style_box, className_cell, style_cell, offset}) {
 	const { lang_db_is, set_lang_db_is } = useContext(HeaderContext);
-	const { lang } = useContext(RegionContext);
+	const { lang, set_lang } = useContext(RegionContext);
 
 	return <DropdownRadio name={tree[lang].lang[lang]}
 										style_box={style_box} style_cell={style_cell} 
 										offset={offset}
 										value={"region"}
 										is={lang_db_is} set_is={set_lang_db_is}>
-		<MenuRegion style_box={style_box} style_cell={style_cell} content={Object.values(tree[lang].lang)} />
+		<MenuRegion style_box={style_box} style_cell={style_cell} 
+								values={Object.values(tree[lang].lang)}
+								keys={Object.keys(tree[lang].lang)} />
 	</DropdownRadio>
 }
 
-
+// OTHER
+//////////
 function OtherRadio({className_box, style_box, className_cell, style_cell, offset}) {
 	const { other_db_is, set_other_db_is } = useContext(HeaderContext);
+	const { lang } = useContext(RegionContext);
 
 	return <DropdownRadio style_box={style_box} style_cell={style_cell} 
-										offset={offset} name={tree.fr.other}
+										offset={offset} name={tree[lang].other}
 										value={"other"}
 										is={other_db_is} set_is={set_other_db_is}>
 		<MenuMarkdown style_box={style_box} style_cell={style_cell}/>
@@ -106,9 +110,19 @@ function DropdownRadioGroup(props) {
 }
 
 
+
+
+
+
+
+////////////////////////////
+// MENU HIMSELF
+////////////////////////////////
+
 export function MenuContent({className_box, style_box, className_cell,  style_cell, in_line}) {
 	// context part, import what you need
 	const { other_db_is, num_item_bd } = useContext(HeaderContext);
+	const { lang } = useContext(RegionContext);
 	// Design part
 	// maybe this value can be compute with useRef to be optimum ?
 	let hh = get_css_value("--height_header");
@@ -152,7 +166,7 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 	const box_offset = Object.assign({}, box);
 	// create offset only if all the menu is vertical dropdown and regular one
 	if(other_db_is && in_line === false) {
-		// here we profit than Javascript is not typed, sometime is good !
+		// here we profit than javascript is not typed, sometime is good !
 		box_offset["padding"] = (height_header*num_item_bd)+"px" + " 0";
 	}
 
@@ -160,9 +174,9 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		{/* Display link to home or not */}
 		{in_line !== false ? <GoHome className_box={"home_box"} style_box={box} style_cell={cell}/> : <></>}
 		{/* Content */}
-		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree.fr.main}</NavCellBox>
-		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree.fr.about}</NavCellBox>
-		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree.fr.contact}</NavCellBox>
+		<NavCellBox to="/main" style_box={box} style_cell={cell}>{tree[lang].main}</NavCellBox>
+		<NavCellBox to="/about" style_box={box} style_cell={cell}>{tree[lang].about}</NavCellBox>
+		<NavCellBox to="/contact" style_box={box} style_cell={cell}>{tree[lang].contact}</NavCellBox>
 		{/* <DropdownClassic style_box={box} style_cell={cell} offset={offset_dropdown} in_line={in_line} /> */}
 		{in_line === true ? 
 			<DropdownRadioGroup style_box={box} style_cell={cell} offset={(height_header - height_header_cell) * 0.5+"px"} in_line={in_line} /> : 
@@ -174,7 +188,7 @@ export function MenuContent({className_box, style_box, className_cell,  style_ce
 		{/* <MenuMarkdown style_box={box} style_cell={cell}/> */}
 
 		{/* create a false account to give the opportunity to connect */}
-		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree.fr.login}</NavCellBox>
+		<NavCellBox to="/account" style_box={box_offset} style_cell={cell}>{tree[lang].login}</NavCellBox>
 	</Box>
 }
 
