@@ -1,28 +1,13 @@
 import React from "react";
-import {useContext, useState} from "react";
 // GATSBY
 import { graphql } from "gatsby";
 // APP
 //the file h.js is like the header in C and C++ language. That's work like an index, catalogue...
-import { FormNetlify, Form, ContentMarkdownHtml, LayoutMain } from "../components/h.js";
-import { RegionContext } from "./../context";
+import { LayoutMain } from "../components/h.js";
+// import { RegionContext } from "./../context";
 import { RenderPageContact } from "../components/render/render_page_contact"
 
 
-// function useNode({data}) {
-//   const { lang } = useContext(RegionContext);
-//   let buf_node = data.allMarkdownRemark.edges[0].node;
-
-//   for(let i = 0 ; i < data.allMarkdownRemark.edges.length ; i++) {
-//     if(lang === data.allMarkdownRemark.edges[i].node.frontmatter.lang) {
-//       buf_node = data.allMarkdownRemark.edges[i].node;
-//     }
-//   }
-
-//   const [node, set_node] = useState(buf_node);
-//   return node;
-
-// }
 /*
 it's necessary to export the Components Page as default
 If it's not do, Gatsby Router don't find the page and return an error

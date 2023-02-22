@@ -18,7 +18,6 @@ export default function PageMain ({data}) {
 };
 
 export const Head = ({data}) => <title>{data.allMarkdownRemark.edges[0].node.frontmatter.categorie}</title>
-// export const Head = () => <title>Main</title>
 
 
 export const myQuery = graphql`

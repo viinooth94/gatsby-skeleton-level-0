@@ -4,7 +4,7 @@ import { useContext } from "react";
 // APP
 import { NavCell } from "../gui";
 import tree from "./../../../media/tree.json";
-import { RegionContext } from "../../context";
+import { RegionContext } from "../../context/context";
 
 export function Legal() {
 	const { lang } = useContext(RegionContext);

@@ -3,7 +3,7 @@ import React from "react";
 import { useContext } from "react";
 // APP
 import { Box } from "./../gui";
-import { RegionContext } from "../../context";
+import { RegionContext } from "../../context/context";
 
 // we cannot use key for the props because it's react reserved word
 function Cell ({className_box, style_box, className_cell, style_cell, keys, index, children}) {
