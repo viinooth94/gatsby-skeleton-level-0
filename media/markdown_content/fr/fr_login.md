@@ -10,4 +10,4 @@ lang: "fr"
 
 C'est par ici qu'on se connecte pour en savoir plus que ceux qu'ils ne le sont pas !
 
-Car soit tu en est, soit tu n'en n'est pas... et là c'est chaud pour toi.
+Car soit tu en es, soit tu n'en n'es pas... et là c'est chaud pour toi.

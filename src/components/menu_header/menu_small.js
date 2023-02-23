@@ -10,11 +10,6 @@ const header_box_style = {
 	margin: "0 auto",
 	display: "flex",
 	alignItems: "center",
-	// justifyContent : "center",
-	// justifyContent : "normal",
-	// justifyContent : "stretch",
-	// justifyContent : "space-around",
-	// justifyContent : "space-evenly",
 	justifyContent : "space-between",
 
 	height: get_css_value("--height_header"),
@@ -31,8 +26,6 @@ const style_box_deploy_menu = {
 const style_cell_deploy_menu = {
 	width: "0px",
 	height: get_css_value("--height_header"),
-	// fontFamily: get_css_value("--font_current"),
-	// border: "1px "+ get_css_value("--color_0") + " solid",
 	cursor: "pointer",
 }
 
@@ -42,7 +35,6 @@ const style_box_elem = {
 	background: get_css_value("--color_header"),
 	zIndex: 1,
 }
-
 
 const hamburger_style_cell = {
 	width: get_css_value("--size_header_cell"),
@@ -57,9 +49,6 @@ const home_style_cell = {
 	height: get_css_value("--height_header_cell"),
 	cursor: "pointer",
 }
-
-
-
 
 const region_style_cell = {
 	position: "relative",
