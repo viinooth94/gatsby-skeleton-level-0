@@ -12,6 +12,10 @@ import { useState, createContext, useEffect} from "react";
 
 // REGION CONTEXT
 ////////////////////
+/*
+* Here it's necessary to init the context, before because this one
+* it use at the top level in the gatsby-browser.js
+*/
 const init_region_context = {
   lang: "en",
   set_lang: function() {}
@@ -20,7 +24,6 @@ const init_region_context = {
 export const RegionContext = createContext(init_region_context);
 
 export function RegionContextProvider({children}) {
-	// lang
 	const browser_is = typeof window !== "undefined";
 	let language = "fr"
   if(browser_is) {
@@ -29,8 +32,8 @@ export function RegionContextProvider({children}) {
 	if(language !== "fr") {
 		language = "en";
 	}
+	
 	const [lang, set_lang] = useState(language);
-
 
 	const setting = {
 		lang, set_lang

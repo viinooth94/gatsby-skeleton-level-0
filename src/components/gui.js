@@ -74,10 +74,16 @@ export function Dropdown({name,
 		is ? set_is(false) : set_is(true); // context
  	}
 
+		// close the dropdown after use it
+		function close(event) {
+			event.preventDefault();
+			set_is(false);
+		}
+
 	return <Box className={className_box} style={style_box}>
 		<div className={className_cell} style={style_cell} onClick={mouse_click}>{name}</div>
 		{is ? 
-			<div style={style_display}>
+			<div style={style_display} onClick={close}>
 				{children}
 			</div> : <></>}
 	</Box>
