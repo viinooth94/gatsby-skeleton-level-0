@@ -24,6 +24,7 @@ export function GoHome({className_box, style_box, className_cell, style_cell}) {
 	let hex = name_to_hex(name);
 	let rgb = hex_to_rgb(hex);
 	let result = rgb_to_filter(rgb);
+	console.log(result.filter);
 	const img_style = {
 		filter: result.filter,
 	}
