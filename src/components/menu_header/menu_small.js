@@ -40,6 +40,7 @@ const style_box_elem = {
 	width: get_css_value("--width_header_cell"),
 	height: get_css_value("--size_header_cell"),
 	background: get_css_value("--color_header"),
+	zIndex: 1,
 }
 
 
