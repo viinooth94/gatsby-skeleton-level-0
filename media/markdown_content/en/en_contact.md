@@ -1,6 +1,6 @@
 ---
-menu: "contact us"
-title: "CONTACT US"
+menu: "contact me"
+title: "CONTACT ME"
 categorie : "contact"
 send: "send"
 firstname: "first name"

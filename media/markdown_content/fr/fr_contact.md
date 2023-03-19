@@ -1,6 +1,6 @@
 ---
-menu: "nous contacter"
-title: "NOUS CONTACTER"
+menu: "me contacter"
+title: "Pour ME CONTACTER"
 categorie : "contact"
 send: "envoyer"
 firstname: "prénom"
