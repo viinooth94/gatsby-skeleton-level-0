@@ -10,10 +10,13 @@ message: "little message to explain what you want"
 lang: "en"
 ---
 
-## email
+## By E-mail
 
-write a message, we contact your as soon as possible
+You can contact me directly by email: vinoth.vijayakumaran@mail-ecv.fr
+Or by phone at: 07.83.03.04.05
 
-## network
+## Network
 
-you can contact us by those canals too.
+You can contact me by social networks too.
+
+## Leave me a message with your contact details to be contacted :

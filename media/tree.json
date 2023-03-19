@@ -1,10 +1,10 @@
 {
 	"fr": {
-		"home": "accueil",
+		"home": "Accueil",
+		"about": "à propos",
 		"main": "projet",
 		"contact": "contact",
-		"about": "à propos",
-		"other": "journal",
+		"other": "Scentsoft",
 		"login": "se connecter",
 		"logout": "se déconnecter",
 		"legal": "mentions légales",
@@ -15,10 +15,10 @@
 	},
 	"en": {
 		"home": "home",
+		"about": "about",
 		"main": "project",
 		"contact": "contact",
-		"about": "about",
-		"other": "log",
+		"other": "Scentsoft",
 		"login": "log in",
 		"logout": "log out",
 		"legal": "legal notices",

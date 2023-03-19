@@ -10,10 +10,13 @@ message: "Un petit message pour expliquer pourquoi, comment, où..."
 lang: "fr"
 ---
 
-## couriel
+## Par mail
 
-par mail, vous pouvez remplir le formulaire ci-desous et nous vous recontacterons dès que nous aurons pris connaissance de votre meeqage.
+Vous pouvez me contacter directement par mail : vinoth.vijayakumaran@mail-ecv.fr
+Ou par téléphone au : 07.83.03.04.05
 
-## réseaux
+## Réseaux
 
-vous pouvez nous contacter aussi via les réseaux sociaux
+Vous pouvez me contacter aussi via les réseaux sociaux.
+
+## Laisser moi un message avec vos coordonnées pour être recontacter : 
